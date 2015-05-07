@@ -17,22 +17,7 @@
 						<div class="col-md-7 column">
 							<img alt="140x140" src="images/final1.jpg" />
 						</div>
-						<div class="col-md-5 column">
-							<ul class="breadcrumb">
-								<li class="active">
-									<a href="http://localhost/covoit/accueil.html"> A propos </a>
-								</li>
-								<li>
-									<a href="http://localhost/covoit/identification.html"> S'identifier </a>
-								</li>
-								<li>
-									<a href="http://localhost/covoit/inscription.html"> Nous rejoindre </a>
-								</li>
-								<li>
-									<a href="http://localhost/covoit/trouvertrajet.html"> Trouver un trajet </a>
-								</li>
-							</ul>
-						</div>
+						<?php include('header.php'); ?>
 					</div>
 				</div>
 			</div>
@@ -94,21 +79,22 @@
 				<div class="container">
 					<div class="row clearfix">
 						<div class="col-md-12 column"></br></br>
-							<h3 class="text-center text-primary" id="trajet">Je fais le trajet en tant que : </h3>
+							<h3 class="text-center text-primary" id="trajet">Je fais le trajet en tant que :</h3>
 							<div class="row clearfix">
 								<div class="col-md-3 column">
 								</div>
 								<div class="col-md-4 column">
-									 <a href="chauffeur.html" type="button" class="btn btn-primary btn-lg" id="bt_chauff" >Chauffeur</a>
+									 <a href="page_chauffeur.php" type="button" class="btn btn-primary btn-lg" id="bt_chauff">Chauffeur</a>
 								</div>
 								<div class="col-md-5 column">
-									 <a href="pieton.html" type="button" class="btn btn-primary btn-lg" id="bt_piet" >Pieton</a>
+									 <a href="page_pieton.php" type="button" class="btn btn-primary btn-lg" id="bt_piet">Piéton</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="clear"> </div>
+				<div class="clear">
+				</div>
 			</div>
 		</div>
 	</body>

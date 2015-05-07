@@ -20,6 +20,17 @@
 						session_start();
 						
 						$_SESSION['idUtilisateur'] = $id;
+						
+						// Incomplet
+						if ($_POST['remember']) {
+							setcookie("usermail", $inputMail);
+						} 
+						else {
+							unset($_COOKIE["usermail"]);
+						}
+						
+						header('Location: http://localhost/covoit/page_identificationreussie.php');
+						exit();
 					}
 					else {
 						// MESSAGE D'ECHEC
