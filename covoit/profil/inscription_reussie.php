@@ -14,7 +14,7 @@
 				<div class="col-md-12 column">
 					<div class="row clearfix">
 						<div class="col-md-7 column">
-							<a href="<?php echo $_SERVER['SERVER_ADDR']; ?>/covoit/page_trouvertrajet.php"><img alt="140x140" src="images/final1.jpg" /></a>
+							<a href="http://localhost/covoit/page_trouvertrajet.php"><img alt="140x140" src="images/final1.jpg" /></a>
 						</div>
 						<?php include('header.php'); ?>
 					</div>
@@ -25,6 +25,18 @@
 			<div class="row clearfix">
 				<div class="col-md-12 column">		
 					<div class="jumbotron">
+						<div class="container">
+							<div class="row clearfix">
+								<div class="col-md-12 column"></br></br>
+									<h3 class="text-center text-primary" id="reussite">Inscription réussie !</h3>
+									<div class="row clearfix">
+										<div class="col-md-4 column">
+											<a href="page_profil.php" type="button" class="btn btn-primary btn-lg" id="bt_profil">Aller vers son profil</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

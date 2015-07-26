@@ -341,7 +341,7 @@ var Planner = {
 		}
 		
 		var stats = this.stats();
-		$('#stats').html( stats.future + ' prochain évènement et ' + stats.past + ' évènement passé' );
+		$('#stats').html( stats.future + ' prochain(s) évènement(s) et ' + stats.past + ' évènement(s) passé(s)' );
 	},
 	showDiary: function() {
 		this.diary_open = true;

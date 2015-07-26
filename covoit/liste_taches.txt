@@ -1,0 +1,48 @@
+** Liste des tâches restantes **
+Les tâches peuvent être divisées en sous-tâches.
+Ne pas cacher un problème, s'il reste à résoudre, le mettre dans la liste à l'endroit approprié.
+Ne pas hésiter à ajouter des tâches à la liste.
+Ne pas supprimer un tâche accompli soi-même. Marquer les accomplis d'un o devant la ligne. (Vérification par Julien)
+Ecrire son nom à côté de la tâche en cours.
+
+GENERAL :
+o Réorganiser les fichiers (Julien : peut-être besoin d'y repasser plus tard)
+- Faire un icône de site pour les onglets de navigateur
+- Fragmenter les pages en modules
+- FONCTIONNALITES MESSAGERIE
+- Vérifier les liens, les corriger si besoin selon la nouvelle organisation
+- Vérifier les inclusions de fichiers
+- Vérifier la consistence du nommage et des titres
+- A faire en DERNIER, retirer le code mis entre parenthèses (car obsolète)
+
+ACCUEIL :
+- Donner des titres aux pages (pour les onglets de navigateur)
+- Créer une véritable page d'accueil (libre mais il faut que ça fasse "accueil qui explique rapidement à quoi sert notre site")
+- Corriger les liens dans les différentes pages du répertoire
+- Le chemin relatif dans le include fait peur. Remplacer par un chemin absolu.
+
+PROFIL : (Julien se concentre ici d'abord)
+- Donner des titres aux pages (pour les onglets de navigateur)
+- Corriger les liens dans les différentes pages du répertoire
+- Ajouter tous les champs attendus dans cette page !
+- Javascript, AJAX, fin du PHP, blablabla...
+
+NOUVEAU : 
+- Donner des titres aux pages (pour les onglets de navigateur)
+- Corriger les liens dans les différentes pages du répertoire
+- Mettre du javascript pour vérifier les inputs
+
+RECHERCHE :
+- Donner des titres aux pages (pour les onglets de navigateur)
+- Corriger les liens dans les différentes pages du répertoire
+- Mettre du javascript pour vérifier les inputs
+
+CLASSES :
+- Compléter les classes incomplètes
+- Créer les fonctionnalités manquantes (gestion des voitures, ...)
+- Corriger les liens dans les différentes pages du répertoire
+
+COMMUN :
+- Corriger les liens dans les différentes page du répertoire
+- Changer les fichiers headers (remplacer php par js !)
+- Créer un footer ?
