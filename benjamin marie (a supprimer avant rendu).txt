@@ -1,0 +1,45 @@
+
+
+Bonjour,
+
+
+vous êtes tous les 3 concernés par l'épreuve de rattrapage pour le cours
+"projet-web". Comme vous étiez sur le même projet, nous avons décidé de
+vous faire refaire ce projet dans le but de l'améliorer.
+
+Les points faibles du projet rendu était les suivants:
+
+- fichiers en vrac à la racine, aucune structure (pensez à ranger vos
+fichiers dans des sous-dossiers en les regroupant par type par exemple)
+- quelques bugs d’affichage (pensez à tester votre projet sous
+différentes résolution d'écran)
+- grosse duplication de code HTML : une modification de la structure
+HTML = plusieurs dizaines de fichiers à modifier (utilisez les fonctions
+include et require de PHP vues en cours pour éviter les copier-coller de
+code HTML)
+- cahier des charges non respecté (complétez ce qu'il manque avec ce que
+vous aviez promis dans le cahier des charges)
+- seulement une dizaine de lignes de javascript : ce dernier point est
+celui qui a le plus pénalisé le projet, il n'y a quasiment pas de
+javascript dans votre application alors que celle-ci profiterait très
+bien de l'utilisation de la méthode AJAX. J'attends donc de vous que
+fassiez de l'AJAX pour ce rattrapage.
+
+Essayez d'améliorer votre projet en tenant compte de ces remarques,
+surtout la dernière.
+Un nouveau rapport est aussi attendu. Ne considérez pas ce rapport comme
+un mode d'emploi de votre application et ne le remplissez pas de
+captures d'écran. Dans ce rapport vous préciserez notamment : les
+difficultés rencontrées, un exposé des fonctionnalités de votre
+application, vos choix techniques (AJAX, API, langage de programmation,
+etc.) avec justification et la répartition des tâches. Entre 10 et 20
+pages devraient suffire.
+
+
+Date limite de rendu : 23 août 23h59 (dernier délai)
+
+Aucun report ne sera possible. Répartissez-vous donc le travail le plus
+tôt possible. Je reste disponible si vous avez des questions.
+
+cordialement,
+Benjamin Marie
