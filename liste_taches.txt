@@ -21,7 +21,7 @@ ACCUEIL :
 o Créer une véritable page d'accueil (libre mais il faut que ça fasse "accueil qui explique rapidement à quoi sert notre site")
 	-> A perfectionner
 - Corriger les liens dans les différentes pages du répertoire
-- Le chemin relatif dans le include fait peur. Remplacer par un chemin absolu.
+o Le chemin relatif dans le include fait peur. Remplacer par un chemin absolu.
 
 PROFIL : (Julien se concentre ici d'abord)
 - Donner des titres aux pages (pour les onglets de navigateur)
