@@ -1,16 +1,16 @@
 <div class="col-md-5 column">
 	<ul class="breadcrumb">
 		<li>
-			<a href="http://localhost/covoit/page_trouvertrajet.php">Trouver un trajet</a>
+			<?php echo "<a href=$page_trouver_un_trajet>Trouver un trajet</a>"; ?>
 		</li>
 		<li>
-			<a href="http://localhost/covoit/page_profil.php">Mon profil</a>
+			<?php echo "<a href=$page_profil>Mon profil</a>"; ?>
 		</li>
 		<li>
-			<a href="http://localhost/covoit/deconnexion.php">Se déconnecter</a>
+			<?php echo "<a href=$page_deconnexion>Se déconnecter</a>"; ?>
 		</li>
 		<li class="active">
-			<a href="http://localhost/covoit/page_apropos.php">A propos</a>
+			<?php echo "<a href=$page_a_propos>A propos</a>"; ?>
 		</li>
 	</ul>
 </div>
