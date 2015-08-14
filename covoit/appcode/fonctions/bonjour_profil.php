@@ -1,6 +1,6 @@
 <?php
 	//Sert à afficher le "bonjour" en haut de la page et à construire un utilisateur
-	include('classe_utilisateur.php');
+	include($root . $classe_utilisateur);
 	
 	if (isset($_SESSION['idUtilisateur'])) {
 		$conn = mysqli_connect("localhost", "root", "", "polycar");

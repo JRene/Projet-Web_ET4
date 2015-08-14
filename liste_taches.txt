@@ -13,15 +13,19 @@ o Réorganiser les fichiers (Julien : peut-être besoin d'y repasser plus tard)
 - Vérifier les liens, les corriger si besoin selon la nouvelle organisation
 - Vérifier les inclusions de fichiers
 - Vérifier la consistence du nommage et des titres
+- Rediriger en cas d'accès à une page "interdite"
 - A faire en DERNIER, retirer le code mis en commentaire (car obsolète)
 - Indenter PROPREMENT
 
 ACCUEIL :
-- Donner des titres aux pages (pour les onglets de navigateur)
+o Donner des titres aux pages (pour les onglets de navigateur)
 o Créer une véritable page d'accueil (libre mais il faut que ça fasse "accueil qui explique rapidement à quoi sert notre site")
 	-> A perfectionner
 - Corriger les liens dans les différentes pages du répertoire
 o Le chemin relatif dans le include fait peur. Remplacer par un chemin absolu.
+
+IDENTIFICATION :
+- Remplacer les form_identification par un seul fichier avec du javascript !
 
 PROFIL : (Julien se concentre ici d'abord)
 - Donner des titres aux pages (pour les onglets de navigateur)

@@ -22,9 +22,17 @@
 
 	// PROFIL
 	$page_inscription = '/profil/inscription.php';
+	$page_inscription_reussie = '/profil/inscription_reussie.php';
 	$page_identification = '/profil/identification.php';
+	$page_identification_reussie = '/profil/identification_reussie.php';
 	$page_profil = '/profil/profil.php';
 
+	// CLASSES
+	$classe_trajet = '/appcode/classes/classe_trajet.php';
+	$classe_utilisateur = '/appcode/classes/classe_utilisateur.php';
+	$classe_voiture = '/appcode/classes/classe_voiture.php';
+
 	// FONCTIONS
+	$fonction_identification = '/appcode/fonctions/identification.php';
 	$page_deconnexion = '/appcode/fonctions/deconnexion.php';
 ?>

@@ -1,3 +1,5 @@
+<!-- Obsolète -->
+
 <form role="form" method="post" action="identification.php">
 	<div class="form-group">
 		 <label for="exampleInputEmail1">Adresse mail u-psud</label>

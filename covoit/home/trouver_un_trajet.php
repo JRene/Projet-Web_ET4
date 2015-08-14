@@ -4,6 +4,7 @@
 	<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/appcode/fonctions/variables.php'); ?>
     <head>
 		<meta charset="utf-8" />
+		<title>Polycar : recherche</title>
 		<?php
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
 			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";

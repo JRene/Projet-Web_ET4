@@ -14,7 +14,8 @@
 						$id = $ligne[0];
 						$hashMDP = utf8_encode($ligne[2]);
 					}
-					
+
+					mysqli_close($conn);
 					if ($hashMDP = hash('sha512', utf8_decode($inputMDP))) {
 						// Succès de la connexion
 						session_start();
@@ -22,14 +23,15 @@
 						$_SESSION['idUtilisateur'] = $id;
 						
 						// Incomplet
-						if ($_POST['remember']) {
+						if ($_POST['chkRemember']) {
 							setcookie("usermail", $inputMail);
-						} 
+						}
 						else {
 							unset($_COOKIE["usermail"]);
 						}
 						
-						header('Location: http://localhost/covoit/page_identificationreussie.php');
+						// REMPLACER CE MACHIN PAR DE L'AJAX
+						header("Location: $page_identification_reussie");
 						exit();
 					}
 					else {

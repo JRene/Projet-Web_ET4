@@ -1,4 +1,6 @@
-<form role="form" method="post" action="identification.php">
+<!-- Obsolète -->
+
+<form role="form" method="post" action="/appcode/fonctions/identification.php">
 	<div class="form-group">
 		 <label for="exampleInputEmail1">Adresse mail u-psud</label>
 		 <input type="email" class="form-control" name="mailUtilisateur" id="exampleInputEmail1" />
