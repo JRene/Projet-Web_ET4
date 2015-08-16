@@ -10,13 +10,78 @@
 			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
 		?>
 		<script type="text/javascript">
+			function  getCookie(name){
+			     if(document.cookie.length == 0)
+			       return null;
+
+			     var regSepCookie = new RegExp('(; )', 'g');
+			     var cookies = document.cookie.split(regSepCookie);
+
+			     for(var i = 0; i < cookies.length; i++){
+			       var regInfo = new RegExp('=', 'g');
+			       var infos = cookies[i].split(regInfo);
+			       if(infos[0] == name){
+			         return unescape(infos[1]);
+			       }
+			     }
+			     return null;
+			   }
+
 			function checkRemember() {
 				if (document.cookie.indexOf('usermail=') != -1) {
-					document.getElementById("mailUtilisateur").value = "test";
+					document.getElementById("mailUtilisateur").value = getCookie("usermail");
 					document.getElementById("chkRemember").checked = true;
 				} else {
 					document.getElementById("mailUtilisateur").value = "";
 					document.getElementById("chkRemember").checked = false;
+				}
+			}
+
+			function getXMLHttpRequest() {
+			    var xhr = null;
+
+			    if (window.XMLHttpRequest || window.ActiveXObject) {
+			        if (window.ActiveXObject) {
+			            try {
+			                xhr = new ActiveXObject("Msxml2.XMLHTTP");
+			            } catch(e) {
+			                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			            }
+			        } else {
+			            xhr = new XMLHttpRequest(); 
+			        }
+			    } else {
+			        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+
+			        return null;
+			    }
+
+			    return xhr;
+			}
+
+			function identificationAJAX(callback) {
+				var xhr = getXMLHttpRequest();
+
+				xhr.onreadystatechange= function() {
+					if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+						callback(xhr.responseXML);
+				    }
+				};
+
+				xhr.open("POST", "/appcode/fonctions/identification.php", true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xhr.send("mailUtilisateur=" + document.getElementById("mailUtilisateur").value +
+				 "&mdpUtilisateur=" + document.getElementById("mdpUtilisateur").value + 
+				 "&chkRemember=" + document.getElementById("chkRemember").checked);
+			}
+
+			function checkConnection(result) {
+				var nodes = result.getElementsByTagName("item");
+				
+				if (nodes[0].getAttribute("acceptConnection") == "true") {
+					divFormulaire.style.display = "none";
+					divSuccess.style.display = "block";
+				} else {
 				}
 			}
 		</script>
@@ -37,7 +102,8 @@
 				<div class="row clearfix">
 					<div class="col-md-12 column">
 						<div class="jumbotron">
-							<?php echo "<form role='form' method='POST' action=$fonction_identification>"; ?>
+							<?php echo "<form role='form' method='POST' onsubmit='identificationAJAX(checkConnection); return false;'>"; ?>
+							<!-- <form role='form' method='POST' > -->
 								<div class="form-group">
 									 <label for="mailUtilisateur">Adresse mail u-psud</label>
 									 <input type="email" class="form-control" name="mailUtilisateur" id="mailUtilisateur" />

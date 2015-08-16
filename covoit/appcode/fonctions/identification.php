@@ -15,7 +15,6 @@
 						$hashMDP = utf8_encode($ligne[2]);
 					}
 
-					mysqli_close($conn);
 					if ($hashMDP = hash('sha512', utf8_decode($inputMDP))) {
 						// Succès de la connexion
 						session_start();
@@ -23,24 +22,40 @@
 						$_SESSION['idUtilisateur'] = $id;
 						
 						// Incomplet
-						if ($_POST['chkRemember']) {
+						if ($_POST['chkRemember'] == "true") {
 							setcookie("usermail", $inputMail);
 						}
 						else {
 							unset($_COOKIE["usermail"]);
 						}
-						
+
 						// REMPLACER CE MACHIN PAR DE L'AJAX
-						header("Location: $page_identification_reussie");
-						exit();
+						//header("Location: $page_identification_reussie");
+						header("Content-Type: text/xml");
+						echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+						echo "<root>";
+						echo "<item acceptConnection=\"true\"/>";
+						echo "</root>";
+
+						//exit();
 					}
 					else {
 						// MESSAGE D'ECHEC
+						header("Content-Type: text/xml");
+						echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+						echo "<root>";
+						echo "<item acceptConnection=\"false\"/>";
+						echo "</root>";
 					}
 				}
 			}
 			else {
 				// MESSAGE D'ECHEC
+				header("Content-Type: text/xml");
+						echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+						echo "<root>";
+						echo "<item acceptConnection=\"false\"/>";
+						echo "</root>";
 			}
 			
 			mysqli_close($conn);
@@ -48,5 +63,10 @@
 	}
 	else {
 		// MESSAGE D'ECHEC
+		header("Content-Type: text/xml");
+						echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+						echo "<root>";
+						echo "<item acceptConnection=\"false\"/>";
+						echo "</root>";
 	}
 ?>
