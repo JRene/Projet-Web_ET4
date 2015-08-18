@@ -2,7 +2,7 @@
 	if (isset($_POST['mailUtilisateur']) && isset($_POST['mdpUtilisateur'])) {
 		$inputMail = $_POST['mailUtilisateur'];
 		$inputMDP = $_POST['mdpUtilisateur'];
-		
+
 		$conn = mysqli_connect("localhost", "root", "", "polycar_mdp");
 		if (!$conn) {
 			die("Connection failed : " . mysqli_connect_error());
@@ -15,7 +15,7 @@
 						$hashMDP = utf8_encode($ligne[2]);
 					}
 
-					if ($hashMDP = hash('sha512', utf8_decode($inputMDP))) {
+					if ($hashMDP == hash('sha512', utf8_decode($inputMDP))) {
 						// Succès de la connexion
 						session_start();
 						
@@ -29,18 +29,14 @@
 							unset($_COOKIE["usermail"]);
 						}
 
-						// REMPLACER CE MACHIN PAR DE L'AJAX
-						//header("Location: $page_identification_reussie");
 						header("Content-Type: text/xml");
 						echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 						echo "<root>";
 						echo "<item acceptConnection=\"true\"/>";
 						echo "</root>";
-
-						//exit();
 					}
 					else {
-						// MESSAGE D'ECHEC
+						// Echec
 						header("Content-Type: text/xml");
 						echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 						echo "<root>";
@@ -50,23 +46,23 @@
 				}
 			}
 			else {
-				// MESSAGE D'ECHEC
+				// Echec
 				header("Content-Type: text/xml");
-						echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
-						echo "<root>";
-						echo "<item acceptConnection=\"false\"/>";
-						echo "</root>";
+				echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+				echo "<root>";
+				echo "<item acceptConnection=\"false\"/>";
+				echo "</root>";
 			}
 			
 			mysqli_close($conn);
 		}
 	}
 	else {
-		// MESSAGE D'ECHEC
+		// Echec
 		header("Content-Type: text/xml");
-						echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
-						echo "<root>";
-						echo "<item acceptConnection=\"false\"/>";
-						echo "</root>";
+		echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+		echo "<root>";
+		echo "<item acceptConnection=\"false\"/>";
+		echo "</root>";
 	}
 ?>

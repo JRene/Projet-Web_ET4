@@ -25,7 +25,8 @@ o Créer une véritable page d'accueil (libre mais il faut que ça fasse "accuei
 o Le chemin relatif dans le include fait peur. Remplacer par un chemin absolu.
 
 IDENTIFICATION :
-- Remplacer les form_identification par un seul fichier avec du javascript !
+o Remplacer les form_identification par un seul fichier avec du javascript !
+- Facultatif : Message d'échec à la connexion.
 
 PROFIL : (Julien se concentre ici d'abord)
 - Donner des titres aux pages (pour les onglets de navigateur)

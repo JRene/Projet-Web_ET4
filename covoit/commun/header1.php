@@ -1,3 +1,5 @@
+<!-- Obsolète -->
+
 <div class="col-md-5 column">
 	<ul class="breadcrumb">
 		<li>

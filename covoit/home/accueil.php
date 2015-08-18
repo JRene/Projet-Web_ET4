@@ -12,18 +12,7 @@
 		?>
 	</head>
 	<body>
-		<div class="container">
-			<div class="row clearfix">
-				<div class="col-md-12 column">
-					<div class="row clearfix">
-						<div class="col-md-7 column">
-							<?php echo "<a href=$page_trouver_un_trajet><img alt='140x140' src=$logo_polycar /></a>"; ?>							
-						</div>
-						<?php include($root . $part_header); ?>
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php include ($root . $part_header); ?>
 		<!-- <div class="container">
 			<div class="row clearfix">
 				<div class="col-md-12 column">		

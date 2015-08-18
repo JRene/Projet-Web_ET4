@@ -10,22 +10,22 @@
 			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
 		?>
 		<script type="text/javascript">
-			function  getCookie(name){
-			     if(document.cookie.length == 0)
-			       return null;
+			function  getCookie(name) {
+				if(document.cookie.length == 0)
+					return null;
 
-			     var regSepCookie = new RegExp('(; )', 'g');
-			     var cookies = document.cookie.split(regSepCookie);
+				var regSepCookie = new RegExp('(; )', 'g');
+				var cookies = document.cookie.split(regSepCookie);
 
-			     for(var i = 0; i < cookies.length; i++){
-			       var regInfo = new RegExp('=', 'g');
-			       var infos = cookies[i].split(regInfo);
-			       if(infos[0] == name){
-			         return unescape(infos[1]);
-			       }
-			     }
-			     return null;
-			   }
+				for(var i = 0; i < cookies.length; i++) {
+					var regInfo = new RegExp('=', 'g');
+					var infos = cookies[i].split(regInfo);
+					if(infos[0] == name) {
+						return unescape(infos[1]);
+					}
+				}
+				return null;
+			}
 
 			function checkRemember() {
 				if (document.cookie.indexOf('usermail=') != -1) {
@@ -59,16 +59,16 @@
 			    return xhr;
 			}
 
-			function identificationAJAX(callback) {
+			function identificationAJAX() {
 				var xhr = getXMLHttpRequest();
 
 				xhr.onreadystatechange= function() {
 					if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-						callback(xhr.responseXML);
+						checkConnection(xhr.responseXML);
 				    }
 				};
 
-				xhr.open("POST", "/appcode/fonctions/identification.php", true);
+				xhr.open("POST", "<?php echo $fonction_identifier; ?>", true);
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xhr.send("mailUtilisateur=" + document.getElementById("mailUtilisateur").value +
 				 "&mdpUtilisateur=" + document.getElementById("mdpUtilisateur").value + 
@@ -77,33 +77,23 @@
 
 			function checkConnection(result) {
 				var nodes = result.getElementsByTagName("item");
-				
+
 				if (nodes[0].getAttribute("acceptConnection") == "true") {
 					divFormulaire.style.display = "none";
 					divSuccess.style.display = "block";
-				} else {
+					verifierSessionAJAX(checkConnected);
 				}
 			}
 		</script>
 	</head>
 	<body onload="checkRemember()">
 		<div class="container">
-			<div class="row clearfix">
-				<div class="col-md-12 column">
-					<div class="row clearfix">
-						<div class="col-md-7 column">
-							<?php echo "<a href=$page_trouver_un_trajet><img alt='140x140' src=$logo_polycar /></a>"; ?>							
-						</div>
-						<?php include($root . $part_header1); ?>
-					</div>
-				</div>
-			</div>
+			<?php include ($root . $part_header); ?>
 			<div id="divFormulaire" class="container" style="display : block;">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
 						<div class="jumbotron">
-							<?php echo "<form role='form' method='POST' onsubmit='identificationAJAX(checkConnection); return false;'>"; ?>
-							<!-- <form role='form' method='POST' > -->
+							<form role='form' method='POST' onsubmit='identificationAJAX(); return false;'>
 								<div class="form-group">
 									 <label for="mailUtilisateur">Adresse mail u-psud</label>
 									 <input type="email" class="form-control" name="mailUtilisateur" id="mailUtilisateur" />
@@ -131,7 +121,7 @@
 										<h3 class="text-center text-primary" id="reussite">Identification réussie !</h3>
 										<div class="row clearfix">
 											<div class="col-md-4 column">
-												<a href="page_profil.php" type="button" class="btn btn-primary btn-lg" id="bt_profil">Aller vers son profil</a>
+												<?php echo "<a href=$page_profil type='button' class='btn btn-primary btn-lg' id='bt_profil'>Aller vers son profil</a>"; ?>
 											</div>
 										</div>
 									</div>

@@ -13,7 +13,7 @@
 
 	// COMMUN
 	$part_header = '/commun/header.php';
-	$part_header1 = '/commun/header1.php';
+	//$part_header1 = '/commun/header1.php';
 
 	// HOME
 	$page_accueil = '/home/accueil.php';
@@ -24,7 +24,7 @@
 	$page_inscription = '/profil/inscription.php';
 	$page_inscription_reussie = '/profil/inscription_reussie.php';
 	$page_identification = '/profil/identification.php';
-	$page_identification_reussie = '/profil/identification_reussie.php';
+	//$page_identification_reussie = '/profil/identification_reussie.php';
 	$page_profil = '/profil/profil.php';
 
 	// CLASSES
@@ -33,6 +33,15 @@
 	$classe_voiture = '/appcode/classes/classe_voiture.php';
 
 	// FONCTIONS
-	$fonction_identification = '/appcode/fonctions/identification.php';
-	$page_deconnexion = '/appcode/fonctions/deconnexion.php';
+	$fonction_identifier = '/appcode/fonctions/identifier.php';
+	$fonction_verifierSession = '/appcode/fonctions/verifierSession.php';
+	$fonction_deconnecter = '/appcode/fonctions/deconnecter.php';
+
+	// NOM DES LIENS DU HEADER
+	$string_trouver_un_trajet = "Trouver un trajet";
+	$string_profil = "Mon profil";
+	$string_deconnexion = "Se déconnecter";
+	$string_a_propos = "A propos";
+	$string_identification = "S'identifier";
+	$string_inscription = "Nous rejoindre";
 ?>
