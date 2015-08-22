@@ -36,6 +36,8 @@
 	$fonction_identifier = '/appcode/fonctions/identifier.php';
 	$fonction_verifierSession = '/appcode/fonctions/verifierSession.php';
 	$fonction_deconnecter = '/appcode/fonctions/deconnecter.php';
+	$fonction_chargerUtilisateur = '/appcode/fonctions/chargerUtilisateur.php';
+	$fonction_chargerVoitures = '/appcode/fonctions/chargerVoitures.php';
 
 	// NOM DES LIENS DU HEADER
 	$string_trouver_un_trajet = "Trouver un trajet";

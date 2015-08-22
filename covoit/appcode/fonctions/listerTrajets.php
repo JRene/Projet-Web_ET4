@@ -1,5 +1,5 @@
 <?php
-	include ('chargerTrajets.php');
+	include ($root . '/appcode/fonctions/chargerTrajets.php');
 	
 	if (isset($trajets) && count($trajets)) {
 		echo "<ul>";

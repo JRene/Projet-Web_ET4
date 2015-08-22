@@ -1,5 +1,5 @@
 <?php
-	include ('classe_trajet.php');
+	include ($root . '/appcode/classes/classe_trajet.php');
 	
 	if (isset($_SESSION['idUtilisateur'])) {
 		$conn = mysqli_connect("localhost", "root", "", "polycar");

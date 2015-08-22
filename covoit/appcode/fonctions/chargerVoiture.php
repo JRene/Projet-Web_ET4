@@ -1,5 +1,7 @@
+<!-- Obsolète -->
+
 <?php
-	include ('classe_voiture.php');
+	include ($root . '/appcode/classes/classe_voiture.php');
 	
 	if ($res2 = mysqli_query($conn, "SELECT * FROM Voiture WHERE idVoiture = \"$idVoiture\";")) {
 		if (mysqli_num_rows($res2) > 0) {

@@ -1,5 +1,5 @@
 <?php
-	include('chargerVoitures.php');
+	include($root . '/appcode/fonctions/chargerVoitures.php');
 	
 	foreach ($garage as $v) {
 		$id = $v->getId();

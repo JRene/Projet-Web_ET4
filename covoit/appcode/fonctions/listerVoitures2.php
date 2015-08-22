@@ -1,9 +1,12 @@
+<!-- Obsolète -->
+
 <?php
-	include ('chargerVoitures.php');
+	include ($root . '/appcode/fonctions/chargerVoitures.php');
 	
 	if (isset($garage) && count($garage)) {
 		echo "<ul>";
 		foreach($garage as $v) {
+			$id = $v->getId();
 			$marque = $v->getMarque();
 			$nom = $v->getNom();
 			$couleur = $v->getCouleur();

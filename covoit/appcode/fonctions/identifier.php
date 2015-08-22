@@ -19,7 +19,8 @@
 						// Succès de la connexion
 						session_start();
 						
-						$_SESSION['idUtilisateur'] = $id;
+						$_SESSION["idUtilisateur"] = $id;
+						$_SESSION["charge"] = "false";
 						
 						// Incomplet
 						if ($_POST['chkRemember'] == "true") {
@@ -30,28 +31,28 @@
 						}
 
 						header("Content-Type: text/xml");
-						echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
-						echo "<root>";
-						echo "<item acceptConnection=\"true\"/>";
-						echo "</root>";
+						echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+						echo "<root>\n";
+						echo "\t<item acceptConnection=\"true\"/>\n";
+						echo "</root>\n";
 					}
 					else {
 						// Echec
 						header("Content-Type: text/xml");
-						echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
-						echo "<root>";
-						echo "<item acceptConnection=\"false\"/>";
-						echo "</root>";
+						echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+						echo "<root>\n";
+						echo "\t<item acceptConnection=\"false\"/>\n";
+						echo "</root>\n";
 					}
 				}
 			}
 			else {
 				// Echec
 				header("Content-Type: text/xml");
-				echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
-				echo "<root>";
-				echo "<item acceptConnection=\"false\"/>";
-				echo "</root>";
+				echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+				echo "<root>\n";
+				echo "\t<item acceptConnection=\"false\"/>\n";
+				echo "</root>\n";
 			}
 			
 			mysqli_close($conn);
@@ -60,9 +61,9 @@
 	else {
 		// Echec
 		header("Content-Type: text/xml");
-		echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
-		echo "<root>";
-		echo "<item acceptConnection=\"false\"/>";
-		echo "</root>";
+		echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+		echo "<root>\n";
+		echo "\t<item acceptConnection=\"false\"/>\n";
+		echo "</root>\n";
 	}
 ?>

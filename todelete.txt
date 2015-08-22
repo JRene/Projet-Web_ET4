@@ -6,3 +6,7 @@ form_identification2.php
 identification_reussie.php
 header1.php
 header2.php
+bonjour_profil.php
+chargerVoiture.php
+chargerVoitures1.php
+listerVoitures2.php

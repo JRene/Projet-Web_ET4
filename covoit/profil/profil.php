@@ -13,10 +13,78 @@
 			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
 		?>
 		<link rel="stylesheet" href="proj.css" />
+		<script type="text/javascript">
+			function getXMLHttpRequest() {
+			    var xhr = null;
+
+			    if (window.XMLHttpRequest || window.ActiveXObject) {
+			        if (window.ActiveXObject) {
+			            try {
+			                xhr = new ActiveXObject("Msxml2.XMLHTTP");
+			            } catch(e) {
+			                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			            }
+			        } else {
+			            xhr = new XMLHttpRequest(); 
+			        }
+			    } else {
+			        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+
+			        return null;
+			    }
+
+			    return xhr;
+			}
+
+			function chargementProfilAJAX() {
+				var xhr = getXMLHttpRequest();
+
+				xhr.onreadystatechange= function() {
+					if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+						listerVoitures(xhr.responseXML);
+				    }
+				};
+
+				xhr.open("POST", "<?php echo $fonction_chargerVoitures; ?>", true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xhr.send("idUtilisateur=<?php echo $_SESSION['idUtilisateur']; ?>");
+			}
+
+			function listerVoitures(result) {
+				var nodes = result.getElementsByTagName("voiture");
+				var listeVoitures = document.getElementById("listeVoitures");
+
+				for (var i = 0; i < nodes.length; i++) {
+					var idVoiture = nodes[i].getAttribute("id");
+					var marqueVoiture = nodes[i].getAttribute("marque");
+					var nomVoiture = nodes[i].getAttribute("nom");
+					var couleurVoiture = nodes[i].getAttribute("couleur");
+					var infoVoiture = nodes[i].getAttribute("info");
+					var nbPlacesVoiture = nodes[i].getAttribute("nbPlaces");
+					var urlPhotoVoiture = nodes[i].getAttribute("urlPhoto");
+
+					var voitureNode = document.createElement("li");
+					var voitureTitleNode = document.createElement("h4");
+					var voitureTitleTextNode = document.createTextNode("Voiture : " + marqueVoiture + " " + nomVoiture + " " + couleurVoiture);
+					var voitureDetailNode = document.createElement("ul");
+					var voitureDetail2Node = document.createElement("li");
+					var voitureDetail3Node = document.createElement("h5");
+					var voitureDetailTextNode = document.createTextNode("Informations sur la voiture : " + infoVoiture);
+					voitureDetail3Node.appendChild(voitureDetailTextNode);
+					voitureDetail2Node.appendChild(voitureDetail3Node);
+					voitureDetailNode.appendChild(voitureDetail2Node);
+					voitureTitleNode.appendChild(voitureTitleTextNode);
+					voitureNode.appendChild(voitureTitleNode);
+					voitureNode.appendChild(voitureDetailNode);
+					listeVoitures.appendChild(voitureNode);
+				}
+			}
+		</script>
 	</head>
-	<body>
+	<body onload="chargementProfilAJAX();">
 		<div class="container">
 			<?php include($root . $part_header); ?>
+			<?php include_once($root . $fonction_chargerUtilisateur); ?>
 			<div class="container">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
@@ -24,10 +92,10 @@
 							<div class="container">
 								<div class="row clearfix">
 									<div class="col-md-3 column">
-										<img alt="140x140" class="img-circle" <?php echo 'src="/images/' . $_SESSION['idUtilisateur'] . '.jpg"'; ?>/>
+										<?php echo "<img alt='140x140' class='img-circle' src='/images/" . $_SESSION["idUtilisateur"] . ".jpg' />"; ?>
 									</div>
 									<div class="col-md-9 column">
-										<?php include($root . '/appcode/fonctions/bonjour_profil.php'); ?>
+										<?php echo "<h2 class='text-center text-primary'>Bonjour " . $_SESSION["prenomUtilisateur"] . " " . $_SESSION["nomUtilisateur"] . " (" . $_SESSION["pseudoUtilisateur"] . ")!</h2>"; ?>
 									</div>
 								</div>
 							</div>
@@ -43,11 +111,17 @@
 										</tr>
 										<tr>
 											<h3 class="text-left text-primary">Vos voitures :</h3>
-											<?php include ('listerVoitures2.php'); ?>
+											<ul id="listeVoitures"></ul>
+											<div>
+												<input type='submit' value='Ajouter' name='valider'  class="btn btn-primary btn-lg" id="bt_piet"/>
+											</div>
 										</tr>
 										<tr>
 											<h3 class="text-left text-primary">Vos trajets préférés :</h3>
-											<?php include ('listerTrajets.php'); ?>
+											<?php include ($root . '/appcode/fonctions/listerTrajets.php'); ?>
+											<div>
+												<input type='submit' value='Ajouter' name='valider'  class="btn btn-primary btn-lg" id="bt_piet"/>
+											</div>
 										</tr>
 										<tr>
 											<h3 class="text-left text-primary">Vos préférences :</h3>
