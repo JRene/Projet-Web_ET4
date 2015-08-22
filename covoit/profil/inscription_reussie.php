@@ -1,3 +1,5 @@
+<!-- Obsolète -->
+
 <!DOCTYPE html>
 
 <html lang="fr">

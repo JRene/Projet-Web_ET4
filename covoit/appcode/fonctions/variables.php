@@ -27,17 +27,26 @@
 	//$page_identification_reussie = '/profil/identification_reussie.php';
 	$page_profil = '/profil/profil.php';
 
+	// GROUPE
+	$page_nouveau_pieton = '/groupe/nouveau_pieton.php';
+	$page_nouveau_chauffeur = '/groupe/nouveau_chauffeur.php';
+	$page_groupe_cree = '/groupe/groupe_cree.php';
+	$page_groupe = '/groupe/groupe.php';
+
 	// CLASSES
+	$classe_groupe = '/appcode/classes/classe_groupe.php';
 	$classe_trajet = '/appcode/classes/classe_trajet.php';
 	$classe_utilisateur = '/appcode/classes/classe_utilisateur.php';
 	$classe_voiture = '/appcode/classes/classe_voiture.php';
 
 	// FONCTIONS
+	$fonction_sinscrire = '/appcode/fonctions/sinscrire.php';
 	$fonction_identifier = '/appcode/fonctions/identifier.php';
 	$fonction_verifierSession = '/appcode/fonctions/verifierSession.php';
 	$fonction_deconnecter = '/appcode/fonctions/deconnecter.php';
 	$fonction_chargerUtilisateur = '/appcode/fonctions/chargerUtilisateur.php';
 	$fonction_chargerVoitures = '/appcode/fonctions/chargerVoitures.php';
+	$fonction_chargerTrajets = '/appcode/fonctions/chargerTrajets.php';
 
 	// NOM DES LIENS DU HEADER
 	$string_trouver_un_trajet = "Trouver un trajet";

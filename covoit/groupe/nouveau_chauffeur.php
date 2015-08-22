@@ -1,25 +1,79 @@
 <!DOCTYPE html>
 
 <html lang="fr">
+	<?php
+		require_once($_SERVER['DOCUMENT_ROOT'] . '/appcode/fonctions/variables.php');
+		session_start();
+	?>
 	<head>
 		<meta charset="utf-8" />
+		<title>Polycar : création de groupe</title>
+		<?php
+			echo "<link href='$style' rel='stylesheet' type='text/css' />";
+			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
+		?>
 		<link rel="stylesheet" href="proj.css" />
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			function getXMLHttpRequest() {
+			    var xhr = null;
+
+			    if (window.XMLHttpRequest || window.ActiveXObject) {
+			        if (window.ActiveXObject) {
+			            try {
+			                xhr = new ActiveXObject("Msxml2.XMLHTTP");
+			            } catch(e) {
+			                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			            }
+			        } else {
+			            xhr = new XMLHttpRequest(); 
+			        }
+			    } else {
+			        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+
+			        return null;
+			    }
+
+			    return xhr;
+			}
+
+			function chargementVoituresAJAX() {
+				var xhr = getXMLHttpRequest();
+
+				xhr.onreadystatechange= function() {
+					if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+						listerVoitures(xhr.responseXML);
+				    }
+				};
+
+				xhr.open("POST", "<?php echo $fonction_chargerVoitures; ?>", true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xhr.send("idUtilisateur=<?php echo $_SESSION['idUtilisateur']; ?>");
+			}
+
+			function listerVoitures(result) {
+				var nodes = result.getElementsByTagName("voiture");
+				var listeVoitures = document.getElementById("listeVoitures");
+
+				for (var i = 0; i < nodes.length; i++) {
+					var idVoiture = nodes[i].getAttribute("id");
+					var marqueVoiture = nodes[i].getAttribute("marque");
+					var nomVoiture = nodes[i].getAttribute("nom");
+					var couleurVoiture = nodes[i].getAttribute("couleur");
+					var infoVoiture = nodes[i].getAttribute("info");
+					var nbPlacesVoiture = nodes[i].getAttribute("nbPlaces");
+					var urlPhotoVoiture = nodes[i].getAttribute("urlPhoto");
+
+					var option = document.createElement("option");
+					var optionText = document.createTextNode(marqueVoiture + " " + nomVoiture + " " + couleurVoiture);
+					option.value = idVoiture;
+					option.appendChild(optionText);
+					listeVoitures.appendChild(option);
+				}
+			}
+		</script>
 	</head>
-	<body>
-		<div class="container">
-			<div class="row clearfix">
-				<div class="col-md-12 column">
-					<div class="row clearfix">
-						<div class="col-md-7 column">
-							<a href="http://localhost/covoit/page_trouvertrajet.php"><img alt="140x140" src="images/final1.jpg" /></a>
-						</div>
-						<?php include('header.php'); ?>
-					</div>
-				</div>
-			</div>
-		</div>		
+	<body onload="chargementVoituresAJAX();">
+		<?php include($root . $part_header); ?>
 		<div class="contenu">
 			<div class="container">
 				<div class="row clearfix">
@@ -74,8 +128,7 @@
 									<tr>
 										<td></br>Voiture</td>
 										<td>
-											<select name="voiture" required="required">
-												<?php include('listerVoitures1.php'); ?>
+											<select id="listeVoitures" required="required">
 												<option value="ajouter" selected>Ajouter voiture</option>
 											</select>
 										</td>
@@ -149,7 +202,7 @@
 											 <input type='submit' value='Valider' name='valider' class="btn btn-primary btn-lg" id="bt_chauff" >
 										</div>
 										<div class="col-md-5 column">
-											 <input type='reset' value='Reset tout' name='annuler'  class="btn btn-primary btn-lg" id="bt_piet" >
+											 <input type='reset' value='Reinitialiser' name='annuler'  class="btn btn-primary btn-lg" id="bt_piet" >
 										</div>
 									</div>
 								</div>

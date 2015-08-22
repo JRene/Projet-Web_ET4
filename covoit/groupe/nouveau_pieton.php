@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
+	<?php
+		require_once($_SERVER['DOCUMENT_ROOT'] . '/appcode/fonctions/variables.php');
+		session_start();
+	?>
 	<head>
 		<meta charset="utf-8" />
+		<title>Polycar : recherche de groupe</title>
+		<?php
+			echo "<link href='$style' rel='stylesheet' type='text/css' />";
+			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
+		?>
 		<link rel="stylesheet" href="proj.css" />
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-		<script src="jquery.js"></script>
 	</head>
 	<body>
+		<?php include($root . $part_header); ?>
 		<div class="container">
 			<div class="row clearfix">
 				<div class="col-md-12 column">
-					<div class="row clearfix">
-						<div class="col-md-6 column">
-							<a href="http://localhost/covoit/page_trouvertrajet.php"><img alt="140x140" src="images/final1.jpg" /></a>
-						</div>
-						<?php include('header.php'); ?>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row clearfix">
-				<div class="col-md-12 column">		
 					<div class="jumbotron">
 						<div class="contenu">
 							<div class="container">
@@ -33,15 +29,21 @@
 								</div>
 							</div>
 							<form method='POST' action='page_listegroupes.php'>
-								<table class=''>
+								<table>
+									<tr>
+										<td>
+											<label for="dateF">Date de depart: &nbsp &nbsp &nbsp &nbsp </label>
+										</td>
+										<td>
+											<input  type='date' name='j' id="dateF" size='10' maxlength='10' value="12/12/2050">
+										</td>
+									</tr>
 									<tr>
 										<td>Chemin recurrent</td></br>
-										<td><input type='radio' class="Regulier" name='regulier' value='1' checked> oui</td>
-										<td><input type='radio' class="Regulier" name='regulier' value='0'> non</td>
-										<div id="date">
-											<label for="dateF">Date de depart: &nbsp &nbsp &nbsp &nbsp </label>
-											<input  type='date' name='j' id="dateF" size='10' maxlength='10' value="12/12/2050">
-										</div> 
+										<td>
+											<input type='radio' class="Regulier" name='regulier' value='1' checked>oui</input>
+											<input type='radio' class="Regulier" name='regulier' value='0'>non</input>
+										</td>
 									</tr>          
 									<tr>
 										<td></br>Lieu de départ &nbsp &nbsp </td>

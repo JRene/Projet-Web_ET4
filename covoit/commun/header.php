@@ -26,7 +26,7 @@
 
 		xhr.onreadystatechange= function() {
 			if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-				checkConnected(xhr.responseXML);
+				getRightHeader(xhr.responseXML);
 		    }
 		};
 
@@ -35,8 +35,7 @@
 		xhr.send();
 	}
 
-
-	function checkConnected(result) {
+	function getRightHeader(result) {
 		var nodes = result.getElementsByTagName("item");
 
 		if (nodes[0].getAttribute("connected") == "true") {
@@ -69,7 +68,7 @@
 
 		xhr.onreadystatechange= function() {
 			if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-				verifierSessionAJAX(checkConnected);
+				verifierSessionAJAX();
 		    }
 		};
 
@@ -78,28 +77,30 @@
 		xhr.send();
 	}
 </script>
-<div class="row clearfix">
-	<div class="col-md-12 column">
-		<div class="row clearfix">
-			<div class="col-md-7 column">
-				<?php echo "<a href=$page_trouver_un_trajet><img alt='140x140' src=$logo_polycar /></a>"; ?>							
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+				<div class="col-md-7 column">
+					<?php echo "<a href=$page_trouver_un_trajet><img alt='140x140' src=$logo_polycar /></a>"; ?>							
+				</div>
+				<div class="col-md-5 column">
+					<ul class="breadcrumb">
+						<li>
+							<a id="header_link1"></a>
+						</li>
+						<li>
+							<a id="header_link2"></a>
+						</li>
+						<li>
+							<a id="header_link3"></a>
+						</li>
+						<li>
+							<a id="header_link4"></a>
+						</li>
+					</ul>
+				</div>				
 			</div>
-			<div class="col-md-5 column">
-				<ul class="breadcrumb">
-					<li>
-						<a id="header_link1"></a>
-					</li>
-					<li>
-						<a id="header_link2"></a>
-					</li>
-					<li>
-						<a id="header_link3"></a>
-					</li>
-					<li>
-						<a id="header_link4"></a>
-					</li>
-				</ul>
-			</div>				
 		</div>
 	</div>
 </div>

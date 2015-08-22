@@ -14,6 +14,8 @@ o Réorganiser les fichiers (Julien : peut-être besoin d'y repasser plus tard)
 - Vérifier les inclusions de fichiers
 - Vérifier la consistence du nommage et des titres
 - Rediriger en cas d'accès à une page "interdite"
+- Rassembler le javascript
+- Unifier les couches de div
 - A faire en DERNIER, retirer le code mis en commentaire (car obsolète)
 - Indenter PROPREMENT
 
@@ -21,7 +23,7 @@ ACCUEIL :
 o Donner des titres aux pages (pour les onglets de navigateur)
 o Créer une véritable page d'accueil (libre mais il faut que ça fasse "accueil qui explique rapidement à quoi sert notre site")
 	-> A perfectionner
-- Corriger les liens dans les différentes pages du répertoire
+o Corriger les liens dans les différentes pages du répertoire
 o Le chemin relatif dans le include fait peur. Remplacer par un chemin absolu.
 
 IDENTIFICATION :
@@ -29,19 +31,19 @@ o Remplacer les form_identification par un seul fichier avec du javascript !
 - Facultatif : Message d'échec à la connexion.
 
 INSCRIPTION :
-- Revoir à la même manière de l'identification
+o Revoir à la même manière de l'identification
 
 PROFIL : (Julien se concentre ici d'abord)
-- Donner des titres aux pages (pour les onglets de navigateur)
-- Corriger les liens dans les différentes pages du répertoire
+o Donner des titres aux pages (pour les onglets de navigateur)
+o Corriger les liens dans les différentes pages du répertoire
 - Ajouter tous les champs attendus dans cette page !
 - Javascript, AJAX, fin du PHP, blablabla...
+- remplacer les ID de bouton
 
-NOUVEAU : 
-Ce répertoire n'est pas une bonne idée.
-- Donner des titres aux pages (pour les onglets de navigateur)
-- Corriger les liens dans les différentes pages du répertoire
-- Mettre du javascript pour vérifier les inputs
+NOUVEAU : (Ce répertoire n'existe plus. RIEN A FAIRE ICI.)
+o Donner des titres aux pages (pour les onglets de navigateur)
+o Corriger les liens dans les différentes pages du répertoire
+o Mettre du javascript pour vérifier les inputs
 
 RECHERCHE :
 - Donner des titres aux pages (pour les onglets de navigateur)

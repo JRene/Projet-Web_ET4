@@ -1,3 +1,5 @@
+<!-- Obsolète -->
+
 <?php
 	include ($root . '/appcode/fonctions/chargerTrajets.php');
 	

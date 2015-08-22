@@ -87,26 +87,32 @@
 		</script>
 	</head>
 	<body onload="checkRemember()">
+		<?php include($root . $part_header); ?>
 		<div class="container">
-			<?php include ($root . $part_header); ?>
 			<div id="divFormulaire" class="container" style="display : block;">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
 						<div class="jumbotron">
-							<form role='form' method='POST' onsubmit='identificationAJAX(); return false;'>
-								<div class="form-group">
-									 <label for="mailUtilisateur">Adresse mail u-psud</label>
-									 <input type="email" class="form-control" name="mailUtilisateur" id="mailUtilisateur" />
+							<div class="container">
+								<div class="row clearfix">
+									<div class="col-md-12 column">
+										<form role='form' method='POST' onsubmit='identificationAJAX(); return false;'>
+											<div class="form-group">
+												 <label for="mailUtilisateur">Adresse mail u-psud</label>
+												 <input type="email" class="form-control" name="mailUtilisateur" id="mailUtilisateur" />
+											</div>
+											<div class="form-group">
+												 <label for="mdpUtilisateur">Mot de passe</label>
+												 <input type="password" class="form-control" name="mdpUtilisateur" id="mdpUtilisateur" />
+											</div>
+											<div class="checkbox">
+												 <label><input type="checkbox" name="chkRemember" id="chkRemember"/>Se souvenir de moi</label>
+											</div>
+											<button type="submit" class="btn btn-default">Connexion</button>
+										</form>
+									</div>
 								</div>
-								<div class="form-group">
-									 <label for="mdpUtilisateur">Mot de passe</label>
-									 <input type="password" class="form-control" name="mdpUtilisateur" id="mdpUtilisateur" />
-								</div>
-								<div class="checkbox">
-									 <label><input type="checkbox" name="chkRemember" id="chkRemember"/>Se souvenir de moi</label>
-								</div>
-								<button type="submit" class="btn btn-default">Connexion</button>
-							</form>
+							</div>
 						</div>
 					</div>
 				</div>

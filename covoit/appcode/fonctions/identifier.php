@@ -45,6 +45,14 @@
 						echo "</root>\n";
 					}
 				}
+				else {
+					// Echec
+					header("Content-Type: text/xml");
+					echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+					echo "<root>\n";
+					echo "\t<item acceptConnection=\"false\"/>\n";
+					echo "</root>\n";
+				}
 			}
 			else {
 				// Echec

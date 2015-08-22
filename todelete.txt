@@ -10,3 +10,6 @@ bonjour_profil.php
 chargerVoiture.php
 chargerVoitures1.php
 listerVoitures2.php
+listerTrajets.php
+inscription_reussie.php
+listerVoitures1.php

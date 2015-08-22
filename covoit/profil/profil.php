@@ -10,7 +10,7 @@
 		<title>Polycar : profil</title>
 		<?php
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
-			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
+			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
 		?>
 		<link rel="stylesheet" href="proj.css" />
 		<script type="text/javascript">
@@ -37,6 +37,11 @@
 			}
 
 			function chargementProfilAJAX() {
+				chargementVoituresAJAX();
+				chargementTrajetsAJAX();
+			}
+
+			function chargementVoituresAJAX() {
 				var xhr = getXMLHttpRequest();
 
 				xhr.onreadystatechange= function() {
@@ -46,6 +51,20 @@
 				};
 
 				xhr.open("POST", "<?php echo $fonction_chargerVoitures; ?>", true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xhr.send("idUtilisateur=<?php echo $_SESSION['idUtilisateur']; ?>");
+			}
+
+			function chargementTrajetsAJAX() {
+				var xhr = getXMLHttpRequest();
+
+				xhr.onreadystatechange= function() {
+					if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+						listerTrajets(xhr.responseXML);
+				    }
+				};
+
+				xhr.open("POST", "<?php echo $fonction_chargerTrajets; ?>", true);
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xhr.send("idUtilisateur=<?php echo $_SESSION['idUtilisateur']; ?>");
 			}
@@ -79,12 +98,29 @@
 					listeVoitures.appendChild(voitureNode);
 				}
 			}
+
+			function listerTrajets(result) {
+				var nodes = result.getElementsByTagName("trajet");
+				var listeTrajets = document.getElementById("listeTrajets");
+
+				for (var i = 0; i < nodes.length; i++) {
+					var idTrajet = nodes[i].getAttribute("id");
+					var departTrajet = nodes[i].getAttribute("depart");
+					var arriveeTrajet = nodes[i].getAttribute("arrivee");
+					var infoTrajet = nodes[i].getAttribute("info");
+
+					var trajetNode = document.createElement("li");
+					var trajetTextNode = document.createTextNode(departTrajet + " - " + arriveeTrajet);
+					trajetTextNode.appendChild(trajetNode);
+					listeTrajet.appendChild(trajetNode);
+				}
+			}
 		</script>
 	</head>
 	<body onload="chargementProfilAJAX();">
+		<?php include($root . $part_header); ?>
+		<?php include_once($root . $fonction_chargerUtilisateur); ?>
 		<div class="container">
-			<?php include($root . $part_header); ?>
-			<?php include_once($root . $fonction_chargerUtilisateur); ?>
 			<div class="container">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
@@ -95,7 +131,7 @@
 										<?php echo "<img alt='140x140' class='img-circle' src='/images/" . $_SESSION["idUtilisateur"] . ".jpg' />"; ?>
 									</div>
 									<div class="col-md-9 column">
-										<?php echo "<h2 class='text-center text-primary'>Bonjour " . $_SESSION["prenomUtilisateur"] . " " . $_SESSION["nomUtilisateur"] . " (" . $_SESSION["pseudoUtilisateur"] . ")!</h2>"; ?>
+										<?php echo "<h2 class='text-center text-primary'>Bonjour " . $_SESSION["prenomUtilisateur"] . " " . $_SESSION["nomUtilisateur"] . " (" . $_SESSION["pseudoUtilisateur"] . ") !</h2>"; ?>
 									</div>
 								</div>
 							</div>
@@ -118,7 +154,7 @@
 										</tr>
 										<tr>
 											<h3 class="text-left text-primary">Vos trajets préférés :</h3>
-											<?php include ($root . '/appcode/fonctions/listerTrajets.php'); ?>
+											<ul id="listeTrajets"></ul>
 											<div>
 												<input type='submit' value='Ajouter' name='valider'  class="btn btn-primary btn-lg" id="bt_piet"/>
 											</div>

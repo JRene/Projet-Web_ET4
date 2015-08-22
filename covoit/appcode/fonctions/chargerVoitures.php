@@ -14,14 +14,14 @@
 				if (mysqli_num_rows($res1) > 0) {
 					while ($ligne = mysqli_fetch_row($res1)) {
 						$idVoiture = $ligne[1];
-						
-						include ($root . $classe_voiture);
-	
+							
 						if ($res2 = mysqli_query($conn, "SELECT * FROM Voiture WHERE idVoiture = \"$idVoiture\";")) {
 							if (mysqli_num_rows($res2) > 0) {
+								include ($root . $classe_voiture);
+
 								header("Content-Type: text/xml");
 								echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-								echo "<garage>\n";
+								echo "<liste>\n";
 
 								while ($ligne = mysqli_fetch_row($res2)) {
 									$v = new Voiture($ligne[0], utf8_encode($ligne[1]),
@@ -38,7 +38,7 @@
 										"\" urlPhoto=\"" . $v->getUrlPhoto() . "\" />\n";
 								}
 
-								echo "</garage>\n";
+								echo "</liste>\n";
 							}
 						}
 					}

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 
 <html lang="fr">
-	<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/appcode/fonctions/variables.php'); ?>
+	<?php
+		require_once($_SERVER['DOCUMENT_ROOT'] . '/appcode/fonctions/variables.php');
+		session_start();
+	?>
     <head>
 		<meta charset="utf-8" />
 		<title>Polycar : recherche</title>
 		<?php
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
-			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
+			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
 			echo "<script src='$jquery' type='text/javascript'></script>";
 		?>
 		<script src="/lib.js"></script>
 	</head>
-	
 	<body>
 		<div class="container">
 			<?php include ($root . $part_header); ?>
@@ -79,10 +81,11 @@
 								<div class="col-md-3 column">
 								</div>
 								<div class="col-md-4 column">
-									 <a <?php if (isset($_SESSION['idUtilisateur'])) echo "href=\"page_chauffeur.php\""; else echo "href=\"page_identification.php\""; ?> type="button" class="btn btn-primary btn-lg" id="bt_chauff">Chauffeur</a>
+									<?php echo "<a href=$page_nouveau_chauffeur type='button' class='btn btn-primary btn-lg' id='bt_chauff'>Chauffeur</a>"; ?>
+									<!-- <a <?php //if (isset($_SESSION['idUtilisateur'])) echo "href=\"page_chauffeur.php\""; else echo "href=\"page_identification.php\""; ?> type="button" class="btn btn-primary btn-lg" id="bt_chauff">Chauffeur</a> -->
 								</div>
 								<div class="col-md-5 column">
-									 <a href="page_pieton.php" type="button" class="btn btn-primary btn-lg" id="bt_piet">Piéton</a>
+									 <?php echo "<a href=$page_nouveau_pieton type='button' class='btn btn-primary btn-lg' id='bt_piet'>Piéton</a>"; ?>
 								</div>
 							</div>
 						</div>
