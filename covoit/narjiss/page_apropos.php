@@ -1,30 +1,14 @@
 <!DOCTYPE html>
 
 <html lang="fr">
-	<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/appcode/fonctions/variables.php'); ?>
 	<head>
 		<meta charset="utf-8" />
-		<title>Polycar : A propos</title>
-        <?php
-			echo "<link href='$style' rel='stylesheet' type='text/css' />";
-			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
-			echo "<script src='$jquery' type='text/javascript'></script>";
-		?>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="/images/icone.ico" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/scripts.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function() {
-				$('.scrollTo').click( function() { // Au clic sur un élément
-					var page = $(this).attr('href'); // Page cible
-					var speed = 750; // Durée de l'animation (en ms)
-					$('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
-					return false;
-				});
-			});
-		</script>
 		<script>
 			$(document).ready(function() {
 				$('.scrollTo').click( function() { // Au clic sur un élément
@@ -54,7 +38,19 @@
 	
 	
 	<body>
-		<?php include($root . $part_header); ?>
+
+
+		<div class="container">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<div class="row clearfix">
+						<div class="col-md-7 column">
+							<a href="http://localhost/covoit/page_trouvertrajet.php"><img alt="140x140" src="images/final1.jpg" /></a>
+						</div>
+						<?php include('header.php'); ?>
+					</div>
+				</div>
+			</div>
 		<div class="jumbotron">	
 			<div id="page-1">
 				<div class="row clearfix">

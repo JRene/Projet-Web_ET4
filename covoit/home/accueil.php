@@ -13,45 +13,79 @@
 	</head>
 	<body>
 		<?php include ($root . $part_header); ?>
-		<!-- <div class="container">
-			<div class="row clearfix">
-				<div class="col-md-12 column">		
-					<div class="jumbotron"> -->
-						<section id="section" class="section text-image-section nav-overlayimage-background dark-section layout-left no-image fp-section fp-table active" style="background-image: url(&quot;/images/polytech.jpg&quot;); background-size: cover; height: 750px; padding: 0px;">
-							<div class="fp-tableCell" style="height: 750px;">
-								<div style="position: relative; overflow: hidden; width: auto; height: 100%;" class="slimScrollDiv">
-									<div style="overflow: hidden; width: auto; height: 100%;" class="fp-scrollable">
-										<div class="overlay" style="height: 100%; background-color: #FFFFFF; opacity:0.4; filter:alpha(opacity=40); ">
-										</div>
-										<div class="container" style="position: relative; top: -750px;">
-											<div style="padding-top: 90px; padding-bottom: 90px;" class="section-entry">
-											    <div class="text-image-wrapper">
-											        <div class="col-md-6 text-cell">
-           												<div class="text-layout-inner">
-															<div style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);" class="v-item title">
-											   					<h2>Laissez votre voiture devant chez vous</h2>
-															</div>
-															<hr style="visibility: inherit; opacity: 1; width: 100px;" class="v-item title-divider" data-width="100px">
-															<div style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);" class="v-item content">
-															    <p>Chaque matin, des dizaines d'étudiants viennent en voiture : une pollution quotidienne non négligeable que l'on pourrait réduire significativement.</p>
-															</div>
-															<!-- <div style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);" class="section-buttons v-item"><a href="https://www.youtube.com/watch?v=7rYWEg7bIWc" class="play no-ajaxy themewich-lightbox tiny-details button-1" title="Play Video">
-																<span class="play-button has-text"></span>Play Video</a>
-															</div> -->
-														</div>
-										            	<div class="clear"></div>
-										        	</div>
-													<div class="clear"></div>
-												</div>
-										    </div>
-										</div>
+		<div class="container">
+			<div class="jumbotron">				
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="carousel slide" id="carousel-706482">
+								<ol class="carousel-indicators">
+									<li class="active" data-slide-to="0" data-target="#carousel-706482">
+									</li>
+									<li data-slide-to="1" data-target="#carousel-706482">
+									</li>
+									<li data-slide-to="2" data-target="#carousel-706482">
+									</li>
+								</ol>
+							<div class="carousel-inner">
+								<div class="item active">
+									<img alt="Carousel Bootstrap First" src="/images/carou1.jpg" />
+									<div class="carousel-caption">
+									<p>
+										Vous en avez de marre des transports en commun? N'attendez plus, inscrivez-vous sur Polycar, le site de covoiturage qui vous correspond !
+									</p>
 									</div>
 								</div>
+								<div class="item">
+									<img alt="Carousel Bootstrap Second" src="images/carou2.jpg" />
+									<div class="carousel-caption">
+									<p>
+										Vous êtes conducteurs mais vous voulez de la compagnie pendant vos trajets récurrents? Trouvez des compagnons de route grâce à Polycar !
+									</p>
+									</div>
+								</div>
+								<div class="item">
+									<img alt="Carousel Bootstrap Third" src="images/carou3.jpg" />
+									<div class="carousel-caption">
+									<p>
+										Chaque matin, des dizaines d'étudiants viennent en voiture : une pollution quotidienne non négligeable que l'on pourrait réduire significativement. Faites un geste pour la planète, choisissez Polycar.
+									</p>
+									</div>
+								</div>
+							</div> 
+								<a class="left carousel-control" href="#carousel-706482" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-706482" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 							</div>
-						</section>
-<!-- 					</div>
+						</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-12 column">
+				<div class="col-md-2 column">
+				</div>			
+				<div class="col-md-2 column">
+					<img src="images/loca.jpg">
+					<h3> <font face="Calibri">TRAJET</font></h3>
+					<p> <font face="Calibri" size=3 > Choisissez le point de départ et d'arrivée que vous voulez. </font> </p>
+				</div>
+				<div class="col-md-2 column">
+					<img src="images/ami.jpg" align="center">
+					<h3> <font face="Calibri">RENCONTRE</font></h3>
+					<p> <font face="Calibri" size=3 > Plus on est de fous dans la voiture, plus on s'amuse, et plus on se fait d'amis ! </font> </p>
+				</div>
+				<div class="col-md-2 column">
+					<img src="images/profil.jpg">
+					<h3> <font face="Calibri">PROFIL</font></h3>
+					<p> <font face="Calibri" size=3 > Photo, description... Mettez toutes les chances de votre côté pour qu'on vous reconnaisse. </font> </p>
+				</div>
+				<div class="col-md-2 column">
+					<img src="images/argent.jpg">
+					<h3> <font face="Calibri">GRATUITÉ</font></h3>
+					<p> <font face="Calibri" size=3 > Nous n'acceptons que votre satisfaction comme payement </font> </p>
 				</div>
 			</div>
 		</div>
-	</body> -->
+	</body>
 </html>

@@ -22,7 +22,7 @@ o Réorganiser les fichiers (Julien : peut-être besoin d'y repasser plus tard)
 ACCUEIL :
 o Donner des titres aux pages (pour les onglets de navigateur)
 o Créer une véritable page d'accueil (libre mais il faut que ça fasse "accueil qui explique rapidement à quoi sert notre site")
-	-> A perfectionner
+	o A perfectionner
 o Corriger les liens dans les différentes pages du répertoire
 o Le chemin relatif dans le include fait peur. Remplacer par un chemin absolu.
 
