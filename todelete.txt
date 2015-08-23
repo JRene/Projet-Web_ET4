@@ -13,3 +13,5 @@ listerVoitures2.php
 listerTrajets.php
 inscription_reussie.php
 listerVoitures1.php
+page_test.php
+trouvertrajets1.js

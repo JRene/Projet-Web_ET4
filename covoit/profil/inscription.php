@@ -7,7 +7,9 @@
 	?>
 	<head>
 		<meta charset="utf-8" />
+		<title>Polycar : inscription</title>
 		<?php
+			echo "<link rel='shortcut icon' type='image/x-icon' href=$icone_polycar />";
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
 			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
 		?>
@@ -63,6 +65,9 @@
 					verifierSessionAJAX(checkConnected);
 				}
 			}
+			
+			function redirigerSelonPage() {
+			}
 		</script>
 	</head>
 	<body>
@@ -75,6 +80,7 @@
 							<div class="container">
 								<div class="row clearfix">
 									<div class="col-md-12 column">
+										<a href="/profil/identification.php"><div align="right">Déjà inscrit ? Connectez-vous !</div></a>
 										<form method="POST" role="form" enctype="multipart/form-data" onsubmit="inscriptionAJAX(); return false;">
 											<div class="form-group">
 												<label for="prenomUtilisateur">Votre prénom</label>
@@ -138,7 +144,7 @@
 										<h3 class="text-center text-primary" id="reussite">Inscription réussie !</h3>
 										<div class="row clearfix">
 											<div class="col-md-4 column">
-												<?php echo "<a href=$page_profil type='button' class='btn btn-primary btn-lg' id='bt_profil'>Aller vers son profil</a>"; ?>
+												<?php echo "<a href=$page_profil type='button' class='btn btn-primary btn-lg' id='bt_profil'>Aller vers mon profil</a>"; ?>
 											</div>
 										</div>
 									</div>

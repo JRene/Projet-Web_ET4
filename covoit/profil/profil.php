@@ -10,44 +10,28 @@
 		<title>Polycar : profil</title>
 		<?php
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
-			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
+			echo "<link rel='shortcut icon' type='image/x-icon' href=$icone_polycar />";
+			echo "<link href='$style' rel='stylesheet' type='text/css' />";
+			echo "<script src='$jquery' type='text/javascript'></script>";
+			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
+			echo "<script src='$common_functions_js' type='text/javascript'></script>";
+			echo "<script src='$bootstrap_js' type='text/javascript'></script>";
 		?>
-		<link rel="stylesheet" href="proj.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/proj.css" />
 		<script type="text/javascript">
-			function getXMLHttpRequest() {
-			    var xhr = null;
-
-			    if (window.XMLHttpRequest || window.ActiveXObject) {
-			        if (window.ActiveXObject) {
-			            try {
-			                xhr = new ActiveXObject("Msxml2.XMLHTTP");
-			            } catch(e) {
-			                xhr = new ActiveXObject("Microsoft.XMLHTTP");
-			            }
-			        } else {
-			            xhr = new XMLHttpRequest(); 
-			        }
-			    } else {
-			        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
-
-			        return null;
-			    }
-
-			    return xhr;
-			}
-
 			function chargementProfilAJAX() {
-				chargementVoituresAJAX();
+				chargementVoituresAJAX(listerVoitures);
 				chargementTrajetsAJAX();
 			}
 
-			function chargementVoituresAJAX() {
+			function chargementVoituresAJAX(callback) {
 				var xhr = getXMLHttpRequest();
 
 				xhr.onreadystatechange= function() {
 					if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-						listerVoitures(xhr.responseXML);
-				    }
+						callback(xhr.responseXML);
+					}
 				};
 
 				xhr.open("POST", "<?php echo $fonction_chargerVoitures; ?>", true);
@@ -84,7 +68,13 @@
 
 					var voitureNode = document.createElement("li");
 					var voitureTitleNode = document.createElement("h4");
-					var voitureTitleTextNode = document.createTextNode("Voiture : " + marqueVoiture + " " + nomVoiture + " " + couleurVoiture);
+					var voitureTitleTextNode = document.createTextNode("Voiture : " + marqueVoiture + " " + nomVoiture + " " + couleurVoiture + "  ");
+					var voitureBoutonA = document.createElement("a");
+					var voitureBoutonI = document.createElement("i");
+					voitureBoutonI.className = "fa fa-cog fa-spin";
+					voitureBoutonA.href = "#";
+					voitureBoutonA.appendChild(voitureBoutonI);
+
 					var voitureDetailNode = document.createElement("ul");
 					var voitureDetail2Node = document.createElement("li");
 					var voitureDetail3Node = document.createElement("h5");
@@ -93,6 +83,7 @@
 					voitureDetail2Node.appendChild(voitureDetail3Node);
 					voitureDetailNode.appendChild(voitureDetail2Node);
 					voitureTitleNode.appendChild(voitureTitleTextNode);
+					voitureTitleNode.appendChild(voitureBoutonA);
 					voitureNode.appendChild(voitureTitleNode);
 					voitureNode.appendChild(voitureDetailNode);
 					listeVoitures.appendChild(voitureNode);
@@ -115,6 +106,10 @@
 					listeTrajet.appendChild(trajetNode);
 				}
 			}
+
+			function redirigerSelonPage() {
+				rediriger();
+			}
 		</script>
 	</head>
 	<body onload="chargementProfilAJAX();">
@@ -128,45 +123,72 @@
 							<div class="container">
 								<div class="row clearfix">
 									<div class="col-md-3 column">
-										<?php echo "<img alt='140x140' class='img-circle' src='/images/" . $_SESSION["idUtilisateur"] . ".jpg' />"; ?>
+										<?php echo "<img alt='140x140' width='150' height='150' class='img-circle' src='/images/" . $_SESSION["idUtilisateur"] . ".jpg' />"; ?>
 									</div>
 									<div class="col-md-9 column">
 										<?php echo "<h2 class='text-center text-primary'>Bonjour " . $_SESSION["prenomUtilisateur"] . " " . $_SESSION["nomUtilisateur"] . " (" . $_SESSION["pseudoUtilisateur"] . ") !</h2>"; ?>
+								
+										<div data-role="page"  id="pageEspacePerso">
+											<div class="content" data-role="content">
+									
+											<div class="panel-group" id="panel-357806">
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-357806" href="#panel-element-818053">Vos informations</a>
+													</div>
+													<div id="panel-element-818053" class="panel-collapse collapse">
+														<div class="panel-body">
+															<ul>
+															<li>Votre adresse : <?php echo $user->getAdresse(); ?> </li>
+															<li>Votre email : <?php echo $user->getMail(); ?> </li>
+															<li>Votre année : <?php echo $user->getAnnee(); ?> </li>
+															<li>Votre spécialité : <?php echo $user->getSpecialite(); ?></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-357806" href="#panel-element-818054">Vos voitures</a>
+													</div>
+													<div id="panel-element-818054" class="panel-collapse collapse">
+														<div class="panel-body">
+															<ul id="listeVoitures">
+															</ul>
+																</br>
+															<div>
+																<input type='submit' value='Ajouter' name='valider'  class="btn btn-default" id="bt_piet"/>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														 <a class="panel-title" data-toggle="collapse" data-parent="#panel-357806" href="#panel-element-818055">Vos trajets préférés</a>
+													</div>
+													<div id="panel-element-818055" class="panel-collapse collapse">
+														<div class="panel-body">
+														<input type='submit' value='Ajouter' name='valider'  class="btn btn-default" id="bt_piet" />
+														</div>
+													</div>
+												</div>
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														 <a class="panel-title" data-toggle="collapse" data-parent="#panel-357806" href="#panel-element-818056">Vos préférences</a>
+													</div>
+													<div id="panel-element-818056" class="panel-collapse collapse">
+														<div class="panel-body">
+															<li>Musique : NON GERE</li>
+															<li>Fumee : NON GERE</li>
+															<li>Discussion : NON GERE</li>
+															<li>Possibilite de faire un stop : NON GERE</li>					
+														</div>
+													</div>
+												</div>
+											</div>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
-							<div data-role="page"  id="pageEspacePerso">
-								<div class="content" data-role="content">
-									<table>
-										<tr>
-											<h3 class="text-left text-primary">Vos informations :</h3>
-											<h5>Votre adresse : <?php echo $user->getAdresse(); ?></h5>
-											<h5>Votre email : <?php echo $user->getMail(); ?></h5>
-											<h5>Votre année : <?php echo $user->getAnnee(); ?></h5>
-											<h5>Votre spécialité : <?php echo $user->getSpecialite(); ?></h5>
-										</tr>
-										<tr>
-											<h3 class="text-left text-primary">Vos voitures :</h3>
-											<ul id="listeVoitures"></ul>
-											<div>
-												<input type='submit' value='Ajouter' name='valider'  class="btn btn-primary btn-lg" id="bt_piet"/>
-											</div>
-										</tr>
-										<tr>
-											<h3 class="text-left text-primary">Vos trajets préférés :</h3>
-											<ul id="listeTrajets"></ul>
-											<div>
-												<input type='submit' value='Ajouter' name='valider'  class="btn btn-primary btn-lg" id="bt_piet"/>
-											</div>
-										</tr>
-										<tr>
-											<h3 class="text-left text-primary">Vos préférences :</h3>
-											<h5>Musique : NON GERE</h5>
-											<h5>Fumee : NON GERE</h5>
-											<h5>Discussion : NON GERE</h5>
-											<h5>Possibilite de faire un stop : NON GERE</h5>
-										</tr>
-									</table>
 									</br>
 									</br>
 									<div>

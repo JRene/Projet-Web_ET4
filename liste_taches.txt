@@ -6,32 +6,19 @@ Ne pas supprimer une tâche accomplie soi-même. Marquer les accomplis d'un o de
 Ecrire son nom à côté de la tâche en cours.
 
 GENERAL :
-o Réorganiser les fichiers (Julien : peut-être besoin d'y repasser plus tard)
-- Faire un icône de site pour les onglets de navigateur
-- Fragmenter les pages en modules
+o Fragmenter les pages en modules
 - FONCTIONNALITES MESSAGERIE
-- Vérifier les liens, les corriger si besoin selon la nouvelle organisation
-- Vérifier les inclusions de fichiers
-- Vérifier la consistence du nommage et des titres
+o Vérifier les liens, les corriger si besoin selon la nouvelle organisation
+o Vérifier les inclusions de fichiers
+o Vérifier la consistence du nommage et des titres
 - Rediriger en cas d'accès à une page "interdite"
 - Rassembler le javascript
 - Unifier les couches de div
 - A faire en DERNIER, retirer le code mis en commentaire (car obsolète)
 - Indenter PROPREMENT
 
-ACCUEIL :
-o Donner des titres aux pages (pour les onglets de navigateur)
-o Créer une véritable page d'accueil (libre mais il faut que ça fasse "accueil qui explique rapidement à quoi sert notre site")
-	o A perfectionner
-o Corriger les liens dans les différentes pages du répertoire
-o Le chemin relatif dans le include fait peur. Remplacer par un chemin absolu.
-
 IDENTIFICATION :
-o Remplacer les form_identification par un seul fichier avec du javascript !
 - Facultatif : Message d'échec à la connexion.
-
-INSCRIPTION :
-o Revoir à la même manière de l'identification
 
 PROFIL : (Julien se concentre ici d'abord)
 o Donner des titres aux pages (pour les onglets de navigateur)
@@ -39,11 +26,6 @@ o Corriger les liens dans les différentes pages du répertoire
 - Ajouter tous les champs attendus dans cette page !
 - Javascript, AJAX, fin du PHP, blablabla...
 - remplacer les ID de bouton
-
-NOUVEAU : (Ce répertoire n'existe plus. RIEN A FAIRE ICI.)
-o Donner des titres aux pages (pour les onglets de navigateur)
-o Corriger les liens dans les différentes pages du répertoire
-o Mettre du javascript pour vérifier les inputs
 
 RECHERCHE :
 - Donner des titres aux pages (pour les onglets de navigateur)

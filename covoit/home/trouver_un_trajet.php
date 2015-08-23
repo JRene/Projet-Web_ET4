@@ -11,9 +11,15 @@
 		<?php
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
 			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
+			echo "<script src='$common_functions_js' type='text/javascript'></script>";
 			echo "<script src='$jquery' type='text/javascript'></script>";
 		?>
 		<script src="/lib.js"></script>
+		<script type="text/javascript">
+			function redirigerSelonPage() {
+				rediriger();
+			}
+		</script>
 	</head>
 	<body>
 		<div class="container">

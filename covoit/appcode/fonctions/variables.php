@@ -1,15 +1,27 @@
 <?php
 	$style = '/style.css';
-	$jquery = '/appcode/jquery.js';
+	$common_functions_js = '/appcode/common_functions.js';
+	$jquery = '/appcode/jquery-2.1.4.js';
 	$bootstrap = '/appcode/bootstrap/css/bootstrap.min.css';
+	$bootstrap_js = '/appcode/bootstrap/js/bootstrap.min.js';
 
+	$root = $_SERVER['DOCUMENT_ROOT'];
+
+	// IMAGES
 	$logo_polycar = '/images/logo_polycar.jpg';
+	$icone_polycar = '/images/icone.ico';
+	$image_carou1 = '/images/carou1.jpg';
+	$image_carou2 = '/images/carou2.jpg';
+	$image_carou3 = '/images/carou3.jpg';
+	$image_loca = '/images/loca.jpg';
+	$image_ami = '/images/ami.jpg';
+	$image_profil = '/images/profil.jpg';
+	$image_argent = '/images/argent.jpg';
+	$image_recherche_groupe = '/images/recherche_groupe.jpg';
 	$photo_polytech = '/images/polytech.jpg';
 	$photo_fatah = '/images/fatah.jpg';
 	$photo_julien = '/images/julien.jpg';
 	$photo_narjiss = '/images/narjiss.jpg';
-
-	$root = $_SERVER['DOCUMENT_ROOT'];
 
 	// COMMUN
 	$part_header = '/commun/header.php';
@@ -32,6 +44,9 @@
 	$page_nouveau_chauffeur = '/groupe/nouveau_chauffeur.php';
 	$page_groupe_cree = '/groupe/groupe_cree.php';
 	$page_groupe = '/groupe/groupe.php';
+
+	// RECHERCHE
+	$page_liste_groupe = '/recherche/liste_groupe.php';
 
 	// CLASSES
 	$classe_groupe = '/appcode/classes/classe_groupe.php';

@@ -1,33 +1,11 @@
 <script type="text/javascript">
-	function getXMLHttpRequest() {
-	    var xhr = null;
-
-	    if (window.XMLHttpRequest || window.ActiveXObject) {
-	        if (window.ActiveXObject) {
-	            try {
-	                xhr = new ActiveXObject("Msxml2.XMLHTTP");
-	            } catch(e) {
-	                xhr = new ActiveXObject("Microsoft.XMLHTTP");
-	            }
-	        } else {
-	            xhr = new XMLHttpRequest(); 
-	        }
-	    } else {
-	        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
-
-	        return null;
-	    }
-
-	    return xhr;
-	}
-
-	function verifierSessionAJAX() {
+	function verifierSessionAJAX(callback) {
 		var xhr = getXMLHttpRequest();
 
 		xhr.onreadystatechange= function() {
 			if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-				getRightHeader(xhr.responseXML);
-		    }
+				return callback(xhr.responseXML);
+			}
 		};
 
 		xhr.open("POST", "<?php echo $fonction_verifierSession; ?>", true);
@@ -35,7 +13,7 @@
 		xhr.send();
 	}
 
-	function getRightHeader(result) {
+	function modifierHeader(result) {
 		var nodes = result.getElementsByTagName("item");
 
 		if (nodes[0].getAttribute("connected") == "true") {
@@ -61,6 +39,19 @@
 			document.getElementById("header_link4").href = "<?php echo $page_a_propos; ?>";
 			document.getElementById("header_link4").text = "<?php echo $string_a_propos; ?>";
 		}
+
+		return true;
+	}
+
+	function isConnected(result) {
+		var nodes = result.getElementsByTagName("item");
+
+		if (nodes[0].getAttribute("connected") == "true") {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	function deconnexionAJAX() {
@@ -68,11 +59,29 @@
 
 		xhr.onreadystatechange= function() {
 			if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-				verifierSessionAJAX();
+				deconnexionEtRedirection();
 		    }
 		};
 
 		xhr.open("GET", "<?php echo $fonction_deconnecter; ?>?return_url=" + window.location.href, true);
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xhr.send();
+	}
+
+	function rediriger() {
+		var xhr = getXMLHttpRequest();
+
+		xhr.onreadystatechange= function() {
+			if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+				var nodes = xhr.responseXML.getElementsByTagName("item");
+
+				if (nodes[0].getAttribute("connected") != "true") {
+					document.location.replace("<?php echo $page_identification; ?>");
+				}
+			}
+		};
+
+		xhr.open("POST", "<?php echo $fonction_verifierSession; ?>", true);
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xhr.send();
 	}
@@ -82,7 +91,7 @@
 		<div class="col-md-12 column">
 			<div class="row clearfix">
 				<div class="col-md-7 column">
-					<?php echo "<a href=$page_trouver_un_trajet><img alt='140x140' src=$logo_polycar /></a>"; ?>							
+					<?php echo "<a href=$page_accueil><img alt='140x140' src=$logo_polycar /></a>"; ?>							
 				</div>
 				<div class="col-md-5 column">
 					<ul class="breadcrumb">
@@ -105,5 +114,5 @@
 	</div>
 </div>
 <script type="text/javascript">
-	verifierSessionAJAX();
+	verifierSessionAJAX(modifierHeader);
 </script>

@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 
 <html lang="fr">
-	<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/appcode/fonctions/variables.php'); ?>
+	<?php
+		require_once($_SERVER['DOCUMENT_ROOT'] . '/appcode/fonctions/variables.php');
+		session_start();
+	?>
     <head>
 		<meta charset="utf-8" />
 		<title>Polycar : identification</title>
 		<?php
+			echo "<link rel='shortcut icon' type='image/x-icon' href=$icone_polycar />";
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
 			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
+			echo "<script src='$common_functions_js' type='text/javascript'></script>";
 		?>
 		<script type="text/javascript">
-			function  getCookie(name) {
+			function getCookie(name) {
 				if(document.cookie.length == 0)
 					return null;
 
@@ -37,28 +42,6 @@
 				}
 			}
 
-			function getXMLHttpRequest() {
-			    var xhr = null;
-
-			    if (window.XMLHttpRequest || window.ActiveXObject) {
-			        if (window.ActiveXObject) {
-			            try {
-			                xhr = new ActiveXObject("Msxml2.XMLHTTP");
-			            } catch(e) {
-			                xhr = new ActiveXObject("Microsoft.XMLHTTP");
-			            }
-			        } else {
-			            xhr = new XMLHttpRequest(); 
-			        }
-			    } else {
-			        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
-
-			        return null;
-			    }
-
-			    return xhr;
-			}
-
 			function identificationAJAX() {
 				var xhr = getXMLHttpRequest();
 
@@ -81,8 +64,11 @@
 				if (nodes[0].getAttribute("acceptConnection") == "true") {
 					divFormulaire.style.display = "none";
 					divSuccess.style.display = "block";
-					verifierSessionAJAX(checkConnected);
+					verifierSessionAJAX(modifierHeader);
 				}
+			}
+
+			function redirigerSelonPage() {
 			}
 		</script>
 	</head>
@@ -127,7 +113,7 @@
 										<h3 class="text-center text-primary" id="reussite">Identification réussie !</h3>
 										<div class="row clearfix">
 											<div class="col-md-4 column">
-												<?php echo "<a href=$page_profil type='button' class='btn btn-primary btn-lg' id='bt_profil'>Aller vers son profil</a>"; ?>
+												<?php echo "<a href=$page_profil type='button' class='btn btn-primary btn-lg' id='bt_profil'>Aller vers mon profil</a>"; ?>
 											</div>
 										</div>
 									</div>

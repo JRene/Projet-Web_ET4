@@ -9,12 +9,20 @@
 		<meta charset="utf-8" />
 		<title>Polycar : recherche de groupe</title>
 		<?php
+			echo "<link rel='shortcut icon' type='image/x-icon' href=$icone_polycar />";
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
 			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
+			echo "<script src='$common_functions_js' type='text/javascript'></script>";
+			echo "<script src='$jquery' type='text/javascript'></script>";
 		?>
 		<link rel="stylesheet" href="proj.css" />
+		<script type="text/javascript">
+			function redirigerSelonPage() {
+				rediriger();
+			}
+		</script>
 	</head>
-	<body>
+	<body onload="rediriger();">
 		<?php include($root . $part_header); ?>
 		<div class="container">
 			<div class="row clearfix">
@@ -28,7 +36,7 @@
 									</div>
 								</div>
 							</div>
-							<form method='POST' action='page_listegroupes.php'>
+							<form method='POST' action='/recherche/liste_groupe.php'>
 								<table>
 									<tr>
 										<td>

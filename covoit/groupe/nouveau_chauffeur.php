@@ -11,38 +11,17 @@
 		<?php
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
 			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
+			echo "<script src='$common_functions_js' type='text/javascript'></script>";
 		?>
 		<link rel="stylesheet" href="proj.css" />
 		<script type="text/javascript">
-			function getXMLHttpRequest() {
-			    var xhr = null;
-
-			    if (window.XMLHttpRequest || window.ActiveXObject) {
-			        if (window.ActiveXObject) {
-			            try {
-			                xhr = new ActiveXObject("Msxml2.XMLHTTP");
-			            } catch(e) {
-			                xhr = new ActiveXObject("Microsoft.XMLHTTP");
-			            }
-			        } else {
-			            xhr = new XMLHttpRequest(); 
-			        }
-			    } else {
-			        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
-
-			        return null;
-			    }
-
-			    return xhr;
-			}
-
-			function chargementVoituresAJAX() {
+			function chargementVoituresAJAX(callback) {
 				var xhr = getXMLHttpRequest();
 
 				xhr.onreadystatechange= function() {
 					if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-						listerVoitures(xhr.responseXML);
-				    }
+						callback(xhr.responseXML);
+					}
 				};
 
 				xhr.open("POST", "<?php echo $fonction_chargerVoitures; ?>", true);
@@ -70,9 +49,13 @@
 					listeVoitures.appendChild(option);
 				}
 			}
+
+			function redirigerSelonPage() {
+				rediriger();
+			}
 		</script>
 	</head>
-	<body onload="chargementVoituresAJAX();">
+	<body onload="rediriger(); chargementVoituresAJAX(listerVoitures);">
 		<?php include($root . $part_header); ?>
 		<div class="contenu">
 			<div class="container">
