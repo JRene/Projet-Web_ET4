@@ -8,15 +8,15 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Polycar : A propos</title>
-        <?php
+		<?php
 			echo "<link rel='shortcut icon' type='image/x-icon' href=$icone_polycar />";
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
 			echo "<script src='$jquery' type='text/javascript'></script>";
-			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
+			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
 			echo "<script src='$common_functions_js' type='text/javascript'></script>";
 			echo "<script src='$bootstrap_js' type='text/javascript'></script>";
 		?>
-		<script src="/appcode/jquery-1.11.3.js"></script>
+		<!--<script src="/appcode/jquery-1.11.3.js"></script>-->
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('.scrollTo').click( function() { // Au clic sur un élément

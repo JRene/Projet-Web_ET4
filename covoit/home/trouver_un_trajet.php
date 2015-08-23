@@ -9,12 +9,14 @@
 		<meta charset="utf-8" />
 		<title>Polycar : recherche</title>
 		<?php
+			echo "<link rel='shortcut icon' type='image/x-icon' href='$icone_polycar' />";
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
-			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
-			echo "<script src='$common_functions_js' type='text/javascript'></script>";
 			echo "<script src='$jquery' type='text/javascript'></script>";
+			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
+			echo "<script src='$common_functions_js' type='text/javascript'></script>";
+			echo "<script src='$bootstrap_js' type='text/javascript'></script>";
+			echo "<script src='$libjs' type='text/javascript'></script>";
 		?>
-		<script src="/lib.js"></script>
 		<script type="text/javascript">
 			function redirigerSelonPage() {
 				rediriger();
@@ -88,7 +90,6 @@
 								</div>
 								<div class="col-md-4 column">
 									<?php echo "<a href=$page_nouveau_chauffeur type='button' class='btn btn-primary btn-lg' id='bt_chauff'>Chauffeur</a>"; ?>
-									<!-- <a <?php //if (isset($_SESSION['idUtilisateur'])) echo "href=\"page_chauffeur.php\""; else echo "href=\"page_identification.php\""; ?> type="button" class="btn btn-primary btn-lg" id="bt_chauff">Chauffeur</a> -->
 								</div>
 								<div class="col-md-5 column">
 									 <?php echo "<a href=$page_nouveau_pieton type='button' class='btn btn-primary btn-lg' id='bt_piet'>Piéton</a>"; ?>

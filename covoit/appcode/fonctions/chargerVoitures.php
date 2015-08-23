@@ -10,6 +10,9 @@
 		else {
 			$idUtilisateur = $_POST['idUtilisateur'];
 			
+			header("Content-Type: text/xml");
+			echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+			echo "<liste>\n";
 			if ($res1 = mysqli_query($conn, "SELECT * FROM UtiVoit WHERE idUtilisateur = \"$idUtilisateur\";")) {
 				if (mysqli_num_rows($res1) > 0) {
 					while ($ligne = mysqli_fetch_row($res1)) {
@@ -17,18 +20,14 @@
 							
 						if ($res2 = mysqli_query($conn, "SELECT * FROM Voiture WHERE idVoiture = \"$idVoiture\";")) {
 							if (mysqli_num_rows($res2) > 0) {
-								include ($root . $classe_voiture);
-
-								header("Content-Type: text/xml");
-								echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-								echo "<liste>\n";
+								require_once($root . $classe_voiture);
 
 								while ($ligne = mysqli_fetch_row($res2)) {
 									$v = new Voiture($ligne[0], utf8_encode($ligne[1]),
 													utf8_encode($ligne[2]), utf8_encode($ligne[3]),
 													utf8_encode($ligne[4]), $ligne[5],
 													utf8_encode($ligne[6]));
-									//$garage[] = $v;
+									
 									echo "\t<voiture id=\"" . $v->getId() .
 										"\" marque=\"" . $v->getMarque() .
 										"\" nom=\"" . $v->getNom() .
@@ -38,12 +37,13 @@
 										"\" urlPhoto=\"" . $v->getUrlPhoto() . "\" />\n";
 								}
 
-								echo "</liste>\n";
 							}
 						}
 					}
 				}
 			}
+			echo "</liste>\n";
+
 			mysqli_close($conn);
 		}
 	}

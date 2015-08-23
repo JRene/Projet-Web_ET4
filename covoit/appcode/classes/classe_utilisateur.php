@@ -9,16 +9,12 @@
 		private $_specialite;
 		private $_adresse;
 		private $_urlPhoto;
+		private $_musique;
+		private $_tabac;
+		private $_discussion;
+		private $_stop;
 		
-		/*public function __construct($id, $mail, $prenom, $nom, $annee) {
-			$this->_id = $id;
-			$this->_mail = $mail;
-			$this->_prenom = $prenom;
-			$this->_nom = $nom;
-			$this->_annee = $annee;
-		}*/
-		
-		public function __construct($id, $mail, $pseudo, $prenom, $nom, $annee, $specialite, $adresse, $urlPhoto) {
+		public function __construct($id, $mail, $pseudo, $prenom, $nom, $annee, $specialite, $adresse, $urlPhoto, $musique, $tabac, $discussion, $stop) {
 			$this->_id = $id;
 			$this->_pseudo = $pseudo;
 			$this->_mail = $mail;
@@ -28,6 +24,10 @@
 			$this->_specialite = $specialite;
 			$this->_adresse = $adresse;
 			$this->_urlPhoto = $urlPhoto;
+			$this->_musique = $musique;
+			$this->_tabac = $tabac;
+			$this->_discussion = $discussion;
+			$this->_stop = $stop;
 		}
 		
 		public function updatePseudo($pseudo) {			
@@ -133,7 +133,59 @@
 				mysqli_close($conn);
 			}
 		}
+
+		public function updateMusique($musique) {
+			$conn = mysqli_connect("localhost", "root", "", "polycar");
+			if (!$conn) {
+				die("Connection failed : " . mysqli_connect_error());
+			}
+			else {
+				mysqli_query($conn, "UPDATE Utilisateur SET musique = \"$musique\" WHERE idUtilisateur = \"$this->_id\";");
+				$this->_musique = $musique;
+				
+				mysqli_close($conn);
+			}
+		}
 		
+		public function updateTabac($tabac) {
+			$conn = mysqli_connect("localhost", "root", "", "polycar");
+			if (!$conn) {
+				die("Connection failed : " . mysqli_connect_error());
+			}
+			else {
+				mysqli_query($conn, "UPDATE Utilisateur SET tabac = \"$tabac\" WHERE idUtilisateur = \"$this->_id\";");
+				$this->_tabac = $tabac;
+				
+				mysqli_close($conn);
+			}
+		}
+
+		public function updateDiscussion($discussion) {
+			$conn = mysqli_connect("localhost", "root", "", "polycar");
+			if (!$conn) {
+				die("Connection failed : " . mysqli_connect_error());
+			}
+			else {
+				mysqli_query($conn, "UPDATE Utilisateur SET discussion = \"$discussion\" WHERE idUtilisateur = \"$this->_id\";");
+				$this->_discussion = $discussion;
+				
+				mysqli_close($conn);
+			}
+		}
+
+		public function updateStop($stop) {
+			$conn = mysqli_connect("localhost", "root", "", "polycar");
+			if (!$conn) {
+				die("Connection failed : " . mysqli_connect_error());
+			}
+			else {
+				mysqli_query($conn, "UPDATE Utilisateur SET stop = \"$stop\" WHERE idUtilisateur = \"$this->_id\";");
+				$this->_stop = $stop;
+				
+				mysqli_close($conn);
+			}
+		}
+
 		public function getId() {
 			return $this->_id;
 		}
@@ -168,6 +220,22 @@
 		
 		public function getUrlPhoto() {
 			return $this->_urlPhoto;
+		}
+
+		public function getMusique() {
+			return $this->_musique;
+		}
+
+		public function getTabac() {
+			return $this->_tabac;
+		}
+
+		public function getDiscussion() {
+			return $this->_discussion;
+		}
+
+		public function getStop() {
+			return $this->_stop;
 		}
 	}
 ?>

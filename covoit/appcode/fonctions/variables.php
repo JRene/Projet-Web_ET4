@@ -1,5 +1,6 @@
 <?php
-	$style = '/style.css';
+	$style = '/appcode/style.css';
+	$libjs = '/appcode/lib.js';
 	$common_functions_js = '/appcode/common_functions.js';
 	$jquery = '/appcode/jquery-2.1.4.js';
 	$bootstrap = '/appcode/bootstrap/css/bootstrap.min.css';
@@ -25,7 +26,6 @@
 
 	// COMMUN
 	$part_header = '/commun/header.php';
-	//$part_header1 = '/commun/header1.php';
 
 	// HOME
 	$page_accueil = '/home/accueil.php';
@@ -36,7 +36,6 @@
 	$page_inscription = '/profil/inscription.php';
 	$page_inscription_reussie = '/profil/inscription_reussie.php';
 	$page_identification = '/profil/identification.php';
-	//$page_identification_reussie = '/profil/identification_reussie.php';
 	$page_profil = '/profil/profil.php';
 
 	// GROUPE
@@ -62,6 +61,8 @@
 	$fonction_chargerUtilisateur = '/appcode/fonctions/chargerUtilisateur.php';
 	$fonction_chargerVoitures = '/appcode/fonctions/chargerVoitures.php';
 	$fonction_chargerTrajets = '/appcode/fonctions/chargerTrajets.php';
+	$fonction_updateUtilisateur = '/appcode/fonctions/updateUtilisateur.php';
+	$fonction_creerVoiture = '/appcode/fonctions/creerVoiture.php';
 
 	// NOM DES LIENS DU HEADER
 	$string_trouver_un_trajet = "Trouver un trajet";

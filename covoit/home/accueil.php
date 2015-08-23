@@ -9,7 +9,7 @@
 		<meta charset="utf-8" />
 		<title>Polycar : accueil</title>
 		<?php
-			echo "<link rel='shortcut icon' type='image/x-icon' href=$icone_polycar />";
+			echo "<link rel='shortcut icon' type='image/x-icon' href='$icone_polycar' />";
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
 			echo "<script src='$jquery' type='text/javascript'></script>";
 			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";

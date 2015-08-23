@@ -9,33 +9,14 @@
 		<meta charset="utf-8" />
 		<title>Polycar : inscription</title>
 		<?php
-			echo "<link rel='shortcut icon' type='image/x-icon' href=$icone_polycar />";
+			echo "<link rel='shortcut icon' type='image/x-icon' href='$icone_polycar' />";
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
-			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
+			echo "<script src='$jquery' type='text/javascript'></script>";
+			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
+			echo "<script src='$common_functions_js' type='text/javascript'></script>";
+			echo "<script src='$bootstrap_js' type='text/javascript'></script>";
 		?>
 		<script type="text/javascript">
-			function getXMLHttpRequest() {
-			    var xhr = null;
-
-			    if (window.XMLHttpRequest || window.ActiveXObject) {
-			        if (window.ActiveXObject) {
-			            try {
-			                xhr = new ActiveXObject("Msxml2.XMLHTTP");
-			            } catch(e) {
-			                xhr = new ActiveXObject("Microsoft.XMLHTTP");
-			            }
-			        } else {
-			            xhr = new XMLHttpRequest(); 
-			        }
-			    } else {
-			        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
-
-			        return null;
-			    }
-
-			    return xhr;
-			}
-
 			function inscriptionAJAX() {
 				var xhr = getXMLHttpRequest();
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 11 Mai 2015 à 00:03
+-- Généré le :  Dim 23 Août 2015 à 23:31
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -31,14 +31,6 @@ CREATE TABLE IF NOT EXISTS `chefgroupe` (
   `idGroupe` int(10) NOT NULL,
   PRIMARY KEY (`idUtilisateur`,`idGroupe`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `chefgroupe`
---
-
-INSERT INTO `chefgroupe` (`idUtilisateur`, `idGroupe`) VALUES
-(12, 7),
-(12, 16);
 
 -- --------------------------------------------------------
 
@@ -69,15 +61,6 @@ CREATE TABLE IF NOT EXISTS `groupe` (
   PRIMARY KEY (`idGroupe`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
---
--- Contenu de la table `groupe`
---
-
-INSERT INTO `groupe` (`idGroupe`, `idVoiture`, `nom`, `info`, `contribution`, `depart`, `arrivee`) VALUES
-(7, 1, 'Test Ford Fiesta', 'Infos', 'Un sourire', 'fleming', 'polytech'),
-(9, 1, 'Autre groupe de test', 'Infos', 'Des croissants', 'fleming', 'polytech'),
-(16, 1, 'Test de création', 'Ceci est un test de création de groupe', 'Des cacahouètes', 'pacaterie', 'fleming');
-
 -- --------------------------------------------------------
 
 --
@@ -90,13 +73,6 @@ CREATE TABLE IF NOT EXISTS `horaireponctuel` (
   `heure` time NOT NULL,
   PRIMARY KEY (`idPonctuel`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Contenu de la table `horaireponctuel`
---
-
-INSERT INTO `horaireponctuel` (`idPonctuel`, `date`, `heure`) VALUES
-(2, '2015-05-29', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -116,13 +92,6 @@ CREATE TABLE IF NOT EXISTS `horairerecurrent` (
   `heure` time NOT NULL,
   PRIMARY KEY (`idRecurrent`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Contenu de la table `horairerecurrent`
---
-
-INSERT INTO `horairerecurrent` (`idRecurrent`, `lundi`, `mardi`, `mercredi`, `jeudi`, `vendredi`, `samedi`, `dimanche`, `heure`) VALUES
-(1, 1, 1, 0, 1, 1, 0, 0, '08:00:00');
 
 -- --------------------------------------------------------
 
@@ -176,14 +145,6 @@ CREATE TABLE IF NOT EXISTS `typehoraire` (
   PRIMARY KEY (`idGroupe`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `typehoraire`
---
-
-INSERT INTO `typehoraire` (`idGroupe`, `idRecurrent`, `idPonctuel`, `ponctuel`) VALUES
-(7, 1, NULL, 0),
-(16, NULL, 2, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -196,13 +157,6 @@ CREATE TABLE IF NOT EXISTS `utigroupe` (
   `accepte` tinyint(1) NOT NULL,
   PRIMARY KEY (`idUtilisateur`,`idGroupe`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `utigroupe`
---
-
-INSERT INTO `utigroupe` (`idUtilisateur`, `idGroupe`, `accepte`) VALUES
-(14, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -220,18 +174,14 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `specialite` varchar(4) DEFAULT NULL,
   `adresse` varchar(128) DEFAULT NULL,
   `urlPhoto` varchar(256) DEFAULT NULL,
+  `musique` bit(1) NOT NULL DEFAULT b'0',
+  `tabac` bit(1) NOT NULL DEFAULT b'0',
+  `discussion` bit(1) NOT NULL DEFAULT b'0',
+  `stop` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`idUtilisateur`),
   UNIQUE KEY `mail` (`mail`),
   UNIQUE KEY `pseudo` (`pseudo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
-
---
--- Contenu de la table `utilisateur`
---
-
-INSERT INTO `utilisateur` (`idUtilisateur`, `mail`, `pseudo`, `prenom`, `nom`, `annee`, `specialite`, `adresse`, `urlPhoto`) VALUES
-(12, 'julien.rene@u-psud.fr', 'PousseMousse', 'Julien', 'René', 'Et4', 'info', NULL, 'images/12.jpg'),
-(14, 'narjiss.aissoui@u-psud.fr', 'testpseudo', 'Narjiss', 'Aissaoui', 'Et3', 'info', NULL, 'images/14.jpg');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 -- --------------------------------------------------------
 
@@ -257,13 +207,6 @@ CREATE TABLE IF NOT EXISTS `utivoit` (
   PRIMARY KEY (`idUtilisateur`,`idVoiture`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `utivoit`
---
-
-INSERT INTO `utivoit` (`idUtilisateur`, `idVoiture`) VALUES
-(12, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -279,14 +222,7 @@ CREATE TABLE IF NOT EXISTS `voiture` (
   `nbPlaces` int(2) NOT NULL,
   `urlPhoto` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`idVoiture`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Contenu de la table `voiture`
---
-
-INSERT INTO `voiture` (`idVoiture`, `marque`, `nom`, `couleur`, `info`, `nbPlaces`, `urlPhoto`) VALUES
-(1, 'Ford', 'Fiesta', 'Rouge', 'Voiture de test', 5, NULL);
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

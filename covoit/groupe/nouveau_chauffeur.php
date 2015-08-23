@@ -9,11 +9,13 @@
 		<meta charset="utf-8" />
 		<title>Polycar : création de groupe</title>
 		<?php
+			echo "<link rel='shortcut icon' type='image/x-icon' href='$icone_polycar' />";
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
-			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
+			echo "<script src='$jquery' type='text/javascript'></script>";
+			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
 			echo "<script src='$common_functions_js' type='text/javascript'></script>";
+			echo "<script src='$bootstrap_js' type='text/javascript'></script>";
 		?>
-		<link rel="stylesheet" href="proj.css" />
 		<script type="text/javascript">
 			function chargementVoituresAJAX(callback) {
 				var xhr = getXMLHttpRequest();
@@ -64,25 +66,33 @@
 						<div class="jumbotron">
 							<h3 class="text-center text-primary" id="trajet">Création de groupe</h3>
 							<form method='POST' action='creerGroupe.php'>
-								<table class=''>
+								<table>
 									<tr>
 										<td>Nom du groupe</td>
-										<td>
+										<td colspan="3">
 											<input type='text' name='nomGroupe'  size='30' maxlength='45' required="required"/>
 										</td>
 									</tr>
-									<tr>
+									<tr> 
 										<div id="date">
-											<label for="dateF">Date de depart: &nbsp &nbsp &nbsp &nbsp  </label>
-											<input type='date' name="dateDepart" id="dateDepart" size='10' maxlength='10' value="12/12/2050">
-										</div> 
-										<td>Chemin récurrent</td>
-										<td><input type='radio' class="Regulier" name='regulier' value='1' checked>oui</td>
-										<td><input type='radio' class="Regulier" name='regulier' value='0'>non</td>
+											<td></br><label for="dateF">Date de depart: &nbsp &nbsp &nbsp &nbsp  </label></td>
+											<td colspan="3"></br><input type='date' name="dateDepart" id="dateDepart" size='10' maxlength='10' value="12/12/2050"></td>
+										</div>
+									</tr>
+									<tr>
+										<td></br>Chemin récurrent</td>
+										<td colspan="3"></br>
+											<form>
+												<span style="padding-right: 50px;">
+													<input type='radio' name='musique' value='oui'>Oui</input>
+												</span>
+												<input type='radio' name='musique' value='non'>Non</input>
+											</form>
+										</td>
 									</tr>
 									<tr>
 										<td></br>Lieu de départ</td>
-										<td>
+										<td colspan="3">
 											<select name="depart" required="required">
 												<option value="polytech" selected>Polytech Paris-Sud (Orsay)</option>
 												<option value="pacaterie">La Pacaterie (Orsay)</option>
@@ -96,7 +106,7 @@
 									</tr>
 									<tr>
 										<td></br>Lieu d'arrivee</td>
-										<td>
+										<td colspan="3">
 											<select name="arrivee" required="required">
 												<option value="polytech" selected>Polytech Paris-Sud (Orsay)</option>
 												<option value="pacaterie">La Pacaterie (Orsay)</option>
@@ -110,7 +120,7 @@
 									</tr>
 									<tr>
 										<td></br>Voiture</td>
-										<td>
+										<td colspan="3">
 											<select id="listeVoitures" required="required">
 												<option value="ajouter" selected>Ajouter voiture</option>
 											</select>
@@ -118,74 +128,80 @@
 									</tr>
 									<tr>
 										<td></br>Contribution</td>
-										<td>
+										<td colspan="3">
 											<input type='text' name='contribution'  size='30' maxlength='45'/>
 										</td>
 									</tr>
 									<tr>
 										<td><label for="infos"></br>Informations</label></td>
-										<td><textarea name="infos" id="infos" rows="5" cols="50" placeholder="Informations supplémentaires sur l'organisation du groupe"></textarea></td>
+										<td colspan="3">
+											<textarea name="infos" id="infos" rows="5" cols="50" placeholder="Informations supplémentaires sur l'organisation du groupe"></textarea>
+										</td>
 									</tr>
 									<tr>
 										<td></br>Trajet effectué avec musique</td>
-										<td></br>
-											<input type='radio' name='musique' value='oui'>oui
-										</td>
-										<td></br>
-											<input type='radio' name='musique' value='non'>non
-										</td>
-										<td></br>
-											<input type='radio' name='musique' value='indifferent'>indifferent
+										<td colspan="3"></br>
+											<form>
+												<span style="padding-right: 50px;">
+													<input type='radio' name='musique' value='oui'>Oui</input>
+												</span>
+												<span style="padding-right: 50px;">
+													<input type='radio' name='musique' value='non'>Non</input>
+												</span>
+												<input type='radio' name='musique' value='indifferent'>Indifférent</input>
+											</form>
 										</td>
 									</tr>
 									<tr>
 										<td></br>Possibilité de fumer</td>
-										<td></br>
-											<input type='radio' name='fumee' value='oui'>oui
-										</td>
-										<td></br>
-											<input type='radio' name='fumee' value='non'>non
-										</td>
-										<td></br>
-											<input type='radio' name='fumee' value='indifferent'>indifferent
+										<td colspan="3"></br>
+											<form>
+												<span style="padding-right: 50px;">
+													<input type='radio' name='musique' value='oui'>Oui</input>
+												</span>
+												<span style="padding-right: 50px;">
+													<input type='radio' name='musique' value='non'>Non</input>
+												</span>
+												<input type='radio' name='musique' value='indifferent'>Indifférent</input>
+											</form>
 										</td>
 									</tr>
 									<br>
 									<tr>
-										<td></br>Frequence de discussion</td>
-										<td></br>
-											<input type='radio' name='discussion' value='normale'>normale
-										</td>
-										<td></br>
-											<input type='radio' name='discussion' value='passionee'>passionee &nbsp
-										</td>
-										<td></br>
-											<input type='radio' name='discussion' value='discrete'>discrete
+										<td></br>Ouvert à la discussion</td>
+										<td colspan="3"></br>
+											<form>
+												<span style="padding-right: 50px;">
+													<input type='radio' name='musique' value='oui'>Oui</input>
+												</span>
+												<span style="padding-right: 50px;">
+													<input type='radio' name='musique' value='non'>Non</input>
+												</span>
+												<input type='radio' name='musique' value='indifferent'>Indifférent</input>
+											</form>
 										</td>
 									</tr>
 									<tr>
 										<td></br>Possibilite de faire un stop avant destination &nbsp </td>
-										<td></br>
-										   <input type='radio' name='stop' value='oui'>oui
-										</td>
-										<td></br>
-											<input type='radio' name='stop' value='non'>non
-										</td>
-										<td></br>
-											<input type='radio' name='stop' value='indifferent'>indifferent
+										<td colspan="3"></br>
+											<form>
+												<span style="padding-right: 50px;">
+													<input type='radio' name='musique' value='oui'>Oui</input>
+												</span>
+												<span style="padding-right: 50px;">
+													<input type='radio' name='musique' value='non'>Non</input>
+												</span>
+												<input type='radio' name='musique' value='indifferent'>Indifférent</input>
+											</form>
 										</td>
 									</tr>
 								</table>
 								<br>
 								<div class="container">
 									<div class="row clearfix">
-										<div class="col-md-3 column">
-										</div>
-										<div class="col-md-4 column">
-											 <input type='submit' value='Valider' name='valider' class="btn btn-primary btn-lg" id="bt_chauff" >
-										</div>
-										<div class="col-md-5 column">
-											 <input type='reset' value='Reinitialiser' name='annuler'  class="btn btn-primary btn-lg" id="bt_piet" >
+										<div align="center">										
+											 <input type='submit' value='Valider' name='valider' class="btn btn-primary btn-lg" id="bt_chauff" ></input>
+											 <input type='reset' value='Réinitialiser' name='annuler'  class="btn btn-primary btn-lg" id="bt_piet" ></input>
 										</div>
 									</div>
 								</div>

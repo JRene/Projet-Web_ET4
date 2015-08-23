@@ -17,7 +17,9 @@
 							$user = new Utilisateur($id, utf8_encode($ligne[1]), 
 													utf8_encode($ligne[2]), utf8_encode($ligne[3]), 
 													utf8_encode($ligne[4]), utf8_encode($ligne[5]), 
-													utf8_encode($ligne[6]), utf8_encode($ligne[7]), utf8_encode($ligne[8]));
+													utf8_encode($ligne[6]), utf8_encode($ligne[7]), 
+													utf8_encode($ligne[8]), $ligne[9], $ligne[10], 
+													$ligne[11], $ligne[12]);
 						}
 						
 						$_SESSION["prenomUtilisateur"] = $user->getPrenom();

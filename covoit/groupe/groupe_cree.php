@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 
 <html lang="fr">
+	<?php
+		require_once($_SERVER['DOCUMENT_ROOT'] . '/appcode/fonctions/variables.php');
+		session_start();
+		require_once($root . $fonction_chargerUtilisateur);
+	?>
     <head>
 		<meta charset="utf-8" />
-		<link href="style.css" rel="stylesheet" type="text/css" />
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-		<script src="jquery.js"></script>
-		<script src="lib.js"></script>
+		<title>Polycar : profil</title>
+		<?php
+			echo "<link rel='shortcut icon' type='image/x-icon' href='$icone_polycar' />";
+			echo "<link href='$style' rel='stylesheet' type='text/css' />";
+			echo "<script src='$jquery' type='text/javascript'></script>";
+			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
+			echo "<script src='$common_functions_js' type='text/javascript'></script>";
+			echo "<script src='$bootstrap_js' type='text/javascript'></script>";
+		?>
 	</head>
 	<body>
-		<div class="container">
-			<div class="row clearfix">
-				<div class="col-md-12 column">
-					<div class="row clearfix">
-						<div class="col-md-7 column">
-							<a href="http://localhost/covoit/page_trouvertrajet.php"><img alt="140x140" src="images/final1.jpg" /></a>
-						</div>
-						<?php include('header.php'); ?>
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php include($root . $part_header); ?>
 		<div class="container">
 			<div class="row clearfix">
 				<div class="col-md-12 column">		

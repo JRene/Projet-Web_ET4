@@ -9,8 +9,12 @@
 		<meta charset="utf-8" />
 		<title>Polycar : création de groupe</title>
 		<?php
+			echo "<link rel='shortcut icon' type='image/x-icon' href='$icone_polycar' />";
 			echo "<link href='$style' rel='stylesheet' type='text/css' />";
-			echo "<link href='$bootstrap' rel='stylesheet' type='text/css' />";
+			echo "<script src='$jquery' type='text/javascript'></script>";
+			echo "<link href='$bootstrap' rel='stylesheet' type='text/css'>";
+			echo "<script src='$common_functions_js' type='text/javascript'></script>";
+			echo "<script src='$bootstrap_js' type='text/javascript'></script>";
 		?>
 		<link rel="stylesheet" href="proj.css" />
 		<script type="text/javascript">
